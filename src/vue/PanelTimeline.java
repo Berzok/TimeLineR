@@ -9,7 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.text.ParseException;
 
-import modele.Agenda;
+import modele.Timeline;
 import modele.Date;
 import modele.Evenement;
 
@@ -17,12 +17,12 @@ import modele.Evenement;
 public class PanelTimeline extends JPanel
 	{
 	Controleur chControleur;
-	Agenda leAgenda;
+	Timeline leAgenda;
 	JTable timeLine;
 	public PanelTimeline() throws ParseException
 		{
 		this.setLayout(new GridLayout(0, 1));
-		leAgenda = new Agenda();
+		leAgenda = new Timeline();
 		leAgenda.ajout(new Evenement(new Date(5, 7, 1741), "Tourte", "Morrowind"));
 		leAgenda.ajout(new Evenement(new Date(13, 4, 2009), "Terezi", "Skaia"));
 		leAgenda.afficherContenu();

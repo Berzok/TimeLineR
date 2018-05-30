@@ -14,13 +14,13 @@ import modele.*;
 
 public class Controleur implements ActionListener
 	{
-	static Agenda chAgenda;
+	static Timeline chAgenda;
 	static PanelFormulaire chPanelFormulaire;
 	static PanelCalendrier chPanelCalendrier;
 	static PanelAgenda chPanelAgenda;
 	static modele.Date chDate;
 	
-	public Controleur (Agenda parAgenda, PanelFormulaire parPanelForm, PanelCalendrier parPanelCalend, PanelAgenda parPanelAgend)
+	public Controleur (Timeline parAgenda, PanelFormulaire parPanelForm, PanelCalendrier parPanelCalend, PanelAgenda parPanelAgend)
 		{
 		chAgenda = parAgenda;
 		chPanelFormulaire = parPanelForm;
