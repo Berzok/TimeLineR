@@ -1,25 +1,13 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 import java.text.ParseException;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 
-import java.awt.CardLayout;
-import java.awt.Component;
-
-import javax.swing.Box;
-
-import java.awt.FlowLayout;
-
-import javax.swing.BoxLayout;
-
+@SuppressWarnings("serial")
 public class FenetreAgenda extends JFrame {
 
 	/**
@@ -47,7 +35,7 @@ public class FenetreAgenda extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setSize(750, 400);
-		this.setLayout(new BorderLayout());
+		this.setLayout(new GridLayout(2, 0));
 		PanelEvenement panelNord = new PanelEvenement();
 		PanelTimeline panelFrise = new PanelTimeline();
 		this.add(panelNord, BorderLayout.NORTH);
