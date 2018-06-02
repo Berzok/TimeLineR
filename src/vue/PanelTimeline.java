@@ -8,6 +8,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.text.ParseException;
 
@@ -24,12 +26,14 @@ public class PanelTimeline extends JPanel
 	JTable timeLine;
 	public PanelTimeline() throws ParseException
 		{
-		this.setLayout(new GridLayout());
+//		this.setLayout(new GridLayout());
 		leAgenda = new Timeline();
 		leAgenda.ajout(new Evenement(new Date(5, 7, 1741), "Tourte", "Morrowind"));
 		leAgenda.ajout(new Evenement(new Date(13, 4, 2009), "Terezi", "Skaia"));
 		leAgenda.afficherContenu();
 		
+		this.setForeground(new Color(35, 46, 180));
+		this.setBackground(getForeground());
 		
 		timeLine = new JTable();
 		timeLine.setModel(new ModeleTable());
@@ -37,7 +41,10 @@ public class PanelTimeline extends JPanel
 		timeLine.getTableHeader().setReorderingAllowed(false);
 		
 		JScrollPane leScroll = new JScrollPane(timeLine);
+		leScroll.setPreferredSize(new Dimension(745, 150));
+		leScroll.setSize(745, 15);
 		
-		this.add(leScroll, BorderLayout.CENTER);
+		
+		this.add(leScroll);
 		}
 	}

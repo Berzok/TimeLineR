@@ -1,6 +1,7 @@
 package vue;
 import modele.*;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.text.ParseException;
 import javax.swing.*;
@@ -17,6 +18,8 @@ public class PanelEvenement extends JPanel
 	public PanelEvenement() throws ParseException
 		{
 		this.setLayout(new GridLayout(0, 3));
+		this.setForeground(new Color(35, 46, 180));
+		this.setBackground(getForeground());
 		lePanelDetails = new PanelDetailsEvenement();
 		laTimeline = new Timeline();
 		laTimeline.ajout(new Evenement(new Date(5, 7, 1741), "Tourte", "Morrowind"));
