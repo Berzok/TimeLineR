@@ -6,9 +6,20 @@ import java.awt.GridLayout;
 import java.text.ParseException;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 @SuppressWarnings("serial")
 public class FenetreAgenda extends JFrame {
+
+	public JMenuBar menuBar = new JMenuBar();
+	public JMenu menuTimeline = new JMenu("Timelines");
+	public JMenu menuAdd = new JMenu("Ajouts");
+	public JMenuItem addTimeline = new JMenuItem("Ajouter une Timeline");
+	public JMenuItem addEvent = new JMenuItem("Ajouter un event à une Timeline");
+	public JMenuItem timelineTest1 = new JMenuItem("Timeline Test1");
+	public JMenuItem timelineTest2 = new JMenuItem("Timeline Test2");
 
 	/**
 	 * Launch the application.
@@ -39,6 +50,16 @@ public class FenetreAgenda extends JFrame {
 		PanelEvenement panelNord = new PanelEvenement();
 		PanelTimeline panelFrise = new PanelTimeline();
 		this.add(panelNord, BorderLayout.NORTH);
+		
+		//Le JMenu
 		this.add(panelFrise, BorderLayout.SOUTH);
+		this.menuTimeline.add(timelineTest1);
+		this.menuTimeline.add(timelineTest2);
+		this.menuAdd.add(addTimeline);
+		this.menuAdd.add(addEvent);
+		this.menuBar.add(menuTimeline);
+		this.menuBar.add(menuAdd);
+		this.setJMenuBar(menuBar);
+		this.setVisible(true);
 	}
 }
