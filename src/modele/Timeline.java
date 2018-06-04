@@ -1,4 +1,5 @@
 package modele;
+import java.io.Serializable;
 import java.util.ArrayList ;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -7,7 +8,7 @@ import java.util.TreeMap;
 import java.util.TreeSet ;
 
 
-public class Timeline implements Comparable<Evenement> {
+public class Timeline implements Serializable, Comparable<Evenement> {
 	private ArrayList<Evenement> listEvts ;
 	private TreeSet<Evenement> arbreEvts ;
 	private TreeMap<Integer,Evenement> mapEvts ;

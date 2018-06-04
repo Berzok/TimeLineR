@@ -49,7 +49,8 @@ public class FenetreAgenda extends JFrame {
 		setSize(750, 400);
 		this.setLayout(new GridLayout(2, 0));
 		PanelEvenement panelNord = new PanelEvenement();
-		PanelTimeline panelFrise = new PanelTimeline();		
+		PanelTimeline panelFrise = new PanelTimeline();
+		
 		this.add(panelNord, BorderLayout.NORTH);
 		this.add(panelFrise, BorderLayout.SOUTH);
 		

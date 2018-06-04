@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.MouseListener;
 import java.text.ParseException;
 
 import modele.Date;
@@ -43,7 +44,6 @@ public class PanelTimeline extends JPanel
 		JScrollPane leScroll = new JScrollPane(timeLine);
 		leScroll.setPreferredSize(new Dimension(745, 150));
 		leScroll.setSize(745, 15);
-		
 		
 		this.add(leScroll);
 		}

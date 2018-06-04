@@ -7,6 +7,7 @@ public class Evenement{
 	private Date chDate;
 	private String chNom;
 	private String chLieu;
+	private Integer chPoids;
 	
 	public Evenement(Date parDate, String parNom, String parLieu)
 		{
