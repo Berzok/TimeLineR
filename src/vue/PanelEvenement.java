@@ -22,8 +22,6 @@ public class PanelEvenement extends JPanel
 	JButton boutonNext = new JButton(">>");
 	public PanelEvenement() throws ParseException, IOException
 		{
-		
-		this.setLayout(new GridLayout(0, 3));
 		this.setForeground(new Color(0, 0, 0));
 		this.setBackground(getForeground());
 		
@@ -36,7 +34,7 @@ public class PanelEvenement extends JPanel
 		lePanelDetails.setLayout(new CardLayout());
 		
 		this.add(boutonPrevious, BorderLayout.WEST);
-		this.add(lePanelDetails);
+		this.add(lePanelDetails, BorderLayout.CENTER);
 		this.add(boutonNext, BorderLayout.EAST);
 		}
 	

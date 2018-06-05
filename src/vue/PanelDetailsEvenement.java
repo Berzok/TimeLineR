@@ -27,14 +27,20 @@ public class PanelDetailsEvenement extends JPanel
 	public PanelDetailsEvenement(Evenement parEvt) throws IOException
 		{
 		
+		JPanel lePanel = new JPanel();
+		JPanel lePanel2 = new JPanel();
+		
 		leTexte = new JTextField("Lalala");
 		leTitre = new JLabel(parEvt.getChNom());
 		
 		laImage = new JLabel(new ImageIcon("images/blank.png"));
 		
-		this.add(laImage, BorderLayout.WEST);
-		this.add(leTitre, BorderLayout.NORTH);
-		this.add(leTexte);
+		lePanel.add(laImage);
+		lePanel2.add(leTitre);
+		lePanel2.add(leTexte);
+		
+		this.add(lePanel);
+		this.add(lePanel2);
 		
 		JPanel card0 = new JPanel();
 		
