@@ -29,7 +29,7 @@ public class Controleur implements ActionListener
 		chPanelFormulaire = parPanelFormulaire;
 		chPanelTimeline = parPanelTimeline;
 		chPanelFormulaire.enregistreEcouteur(this);
-		chPanelCalendrier.enregistreEcouteur(this);
+		chPanelEvenement.enregistreEcouteur(this);
 		}
 	public void changerDateFormulaire(modele.Date parDate)
 		{
@@ -38,14 +38,14 @@ public class Controleur implements ActionListener
 		}
 	public void actionPerformed(ActionEvent parEvent)
 		{
-		for(int i=0; i<chPanelCalendrier.chPanel.chLesJours.length; i++)
+		for(int i=0; i<chPanelEvenement.chPanel.chLesJours.length; i++)
 			{
-			if(parEvent.getSource().equals((chPanelCalendrier.chPanel.chLesJours[i])))
+			if(parEvent.getSource().equals((chPanelEvenement.chPanel.chLesJours[i])))
 				{
 				modele.Date lautreDate = new modele.Date();
-				modele.Date laDate = new modele.Date(Integer.parseInt(chPanelCalendrier.chPanel.chLesJours[i].getText()), lautreDate.getMois(), lautreDate.getAnnee());
+				modele.Date laDate = new modele.Date(Integer.parseInt(chPanelEvenement.chPanel.chLesJours[i].getText()), lautreDate.getMois(), lautreDate.getAnnee());
 //				String laDate = PanelCalendrier.chPanel.chJoursSemaine[i%7-1].getText() + " " + PanelCalendrier.chPanel.chLesJours[i].getText() + " " + lautreDate2[2] + " " + lautreDate2[3];
-				chPanelCalendrier.setDate(laDate);
+				chPanelEvenement.setDate(laDate);
 				chPanelFormulaire.setDate(laDate);
 				}
 			}

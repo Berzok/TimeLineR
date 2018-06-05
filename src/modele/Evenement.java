@@ -8,12 +8,14 @@ public class Evenement{
 	private String chNom;
 	private String chLieu;
 	private Integer chPoids;
+	public static Integer nombre = 0;
 	
 	public Evenement(Date parDate, String parNom, String parLieu)
 		{
 		this.chDate = parDate;
 		this.chNom = parNom;
 		this.chLieu = parLieu;
+		this.nombre++;
 		}//Constructeur
 	
 	public String toString(){

@@ -3,6 +3,7 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.io.IOException;
 import java.text.ParseException;
 
 import javax.swing.JFrame;
@@ -41,8 +42,9 @@ public class FenetreAgenda extends JFrame {
 	/**
 	 * Create the frame.
 	 * @throws ParseException 
+	 * @throws IOException 
 	 */
-	public FenetreAgenda() throws ParseException {
+	public FenetreAgenda() throws ParseException, IOException {
 		setTitle("Chronologie");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
