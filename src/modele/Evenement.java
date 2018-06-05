@@ -7,12 +7,15 @@ public class Evenement{
 	private Date chDate;
 	private String chNom;
 	private Integer chPoids;
+	private String chDesc;
 	
-	public Evenement(Date parDate, String parNom, int parPoids)
+	public Evenement(Date parDate, String parNom, int parPoids, String parDesc)
 		{
 		this.chDate = parDate;
 		this.chNom = parNom;
 		this.chPoids = parPoids;
+		this.chDesc = parDesc;
+		
 		}//Constructeur
 	
 	public String toString(){
