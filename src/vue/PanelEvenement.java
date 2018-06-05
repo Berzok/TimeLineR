@@ -31,7 +31,6 @@ public class PanelEvenement extends JPanel
 		laTimeline.ajout(2, new Evenement(new Date(13, 4, 2009), "Terezi", 2));
 
 		lePanelDetails = new PanelDetailsEvenement(new Evenement(new Date(13, 4, 2009), "Terezi", 2));
-		lePanelDetails.setLayout(new CardLayout());
 		
 		this.add(boutonPrevious, BorderLayout.WEST);
 		this.add(lePanelDetails, BorderLayout.CENTER);
