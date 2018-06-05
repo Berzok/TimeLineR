@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import modele.Evenement;
@@ -22,7 +23,7 @@ import modele.Evenement;
 
 public class PanelDetailsEvenement extends JPanel
 	{
-	private JTextField leTexte;
+	private JTextArea leTexte;
 	private JLabel leTitre;
 	private JLabel laImage;
 	
@@ -32,15 +33,16 @@ public class PanelDetailsEvenement extends JPanel
 		JPanel lePanel2 = new JPanel();
 		
 		lePanel.setLayout(new BoxLayout(lePanel, BoxLayout.LINE_AXIS));
+		lePanel2.setLayout(new BoxLayout(lePanel2, BoxLayout.PAGE_AXIS));
 		
 		
-		
-		leTexte = new JTextField("Lalala");
+		leTexte = new JTextArea("Lalala");
+		leTexte.setEditable(false);
 		leTitre = new JLabel(parEvt.getChNom());
 		laImage = new JLabel(new ImageIcon("images/blank.png"));
 		
 		lePanel.add(laImage);
-		lePanel2.add(leTitre);
+		lePanel2.add(leTitre, BorderLayout.NORTH);
 		lePanel2.add(leTexte);
 		
 		this.add(lePanel);
