@@ -29,8 +29,8 @@ public class PanelTimeline extends JPanel
 		{
 //		this.setLayout(new GridLayout());
 		leAgenda = new Timeline();
-		leAgenda.ajout(new Evenement(new Date(5, 7, 1741), "Tourte", "Morrowind"));
-		leAgenda.ajout(new Evenement(new Date(13, 4, 2009), "Terezi", "Skaia"));
+		leAgenda.ajout(1 , new Evenement(new Date(5, 7, 1741), "Tourte", 1));
+		leAgenda.ajout(2 , new Evenement(new Date(13, 4, 2009), "Terezi", 2));
 		leAgenda.afficherContenu();
 		
 		this.setForeground(new Color(0, 0, 0));

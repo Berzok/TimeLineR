@@ -41,6 +41,7 @@ public class PanelFormulaire extends JPanel implements ActionListener
 	private static JComboBox chMinuteFin;
 	private JLabel chLabelDate = new JLabel();
 	modele.Date chDate;
+	static modele.Evenement chPoids;
 	/**
 	 * Create the panel.
 	 * @throws ParseException 
@@ -256,7 +257,7 @@ public class PanelFormulaire extends JPanel implements ActionListener
 	
 	public static Evenement getEvenement()
 		{
-		chEvenement = new Evenement(new modele.Date(2, 8, 1741), chLieuEvent.getText(), chTitreEvent.getText());
+		chEvenement = new Evenement(new modele.Date(2, 8, 1741), chTitreEvent.getText(), chPoids.getPoids());
 		return chEvenement;
 		}
 	public void actionPerformed(ActionEvent parEvent)

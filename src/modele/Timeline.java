@@ -13,7 +13,6 @@ import javax.swing.event.TreeSelectionEvent;
 
 
 public class Timeline implements Serializable, Comparable<Evenement> {
-	private ArrayList<Evenement> listEvts ;
 	private TreeSet<Evenement> arbreEvts ;
 	private HashMap<Integer, Evenement> mapTimeline ;
 	
@@ -36,8 +35,8 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	
 //	// Question 2
 //	public int compareTo( int key , Timeline timeline) {
-//		for(int i ; )
-//			if(timeline.get(key).getPoids() == timeline2.get(key).getPoids())
+//		for(int i ; i < timeline.size() ; i++ )
+//			if(timeline.get(key)= timeline2.get(key).getPoids())
 //				Evenement nEvt = new Evenement(timeline2.get(key).getDate, timeline2.get(key).getNom, timeline2.get(key).getPoids - 1);
 //				timeline2.put(key, nEvt);
 //	}
@@ -47,9 +46,8 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		for(int i = 0 ; i < timeline.mapTimeline.size() ; i++)
 			if(timeline.mapTimeline.get(key).getChDate() == timeline.mapTimeline.get(i).getChDate()) {
 				if(timeline.mapTimeline.get(key).getPoids() == timeline.mapTimeline.get(i).getPoids()) {
-					Evenement nEvt = new Evenement(timeline.mapTimeline.get(key).getChDate(), timeline.mapTimeline.get(key).getChNom(), timeline.mapTimeline.get(key).getPoids() - 1);
-					timeline.mapTimeline.put(key, nEvt);
-				}
+					timeline.mapTimeline.get(key).setChPoids(timeline.mapTimeline.get(key).getPoids()-1);
+					}
 			}
 	}
 	
@@ -66,9 +64,9 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	
 	public void afficherContenu()
 		{
-		for(int i=0; i<this.listEvts.size(); i++)
+		for(int i=0; i<this.mapTimeline.size(); i++)
 			{
-			System.out.println("Le "+ this.listEvts.get(i).getChDate() + ", " + this.listEvts.get(i).getChNom() + " à " + this.listEvts.get(i).getChLieu());
+			System.out.println("Le "+ this.mapTimeline.get(i).getChDate() + ", " + this.mapTimeline.get(i).getChNom());
 			}
 		}
 	
@@ -84,8 +82,8 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	
 	public String toString(int parIndice)
 		{
-		String leString =  "Le "+ this.listEvts.get(parIndice).getChDate() + ", " + this.listEvts.get(parIndice).getChNom() + " à " + this.listEvts.get(parIndice).getChLieu();
-		return leString;
+			String leString =  "Le "+ this.mapTimeline.get(parIndice).getChDate() + ", " + this.mapTimeline.get(parIndice).getChNom();
+			return leString;
 		}
 
 	@Override

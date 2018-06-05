@@ -6,7 +6,6 @@ import javax.swing.JButton;
 public class Evenement{
 	private Date chDate;
 	private String chNom;
-	private String chLieu;
 	private Integer chPoids;
 	
 	public Evenement(Date parDate, String parNom, int parPoids)
@@ -17,7 +16,7 @@ public class Evenement{
 		}//Constructeur
 	
 	public String toString(){
-		return chDate + " " + chNom + " " + chLieu;
+		return chDate + " " + chNom + " " + chPoids;
 	}//toString
 	
 	public Date getChDate(){
@@ -28,9 +27,13 @@ public class Evenement{
 		return this.chNom;
 	}//Accesseur Nom
 	
-	public String getChLieu(){
-		return this.chLieu;
-	}//Accesseur Lieu
+	public int getPoids() {
+		return this.chPoids;
+	}
+	
+//	public String getChLieu(){
+//		return this.chLieu;
+//	}//Accesseur Lieu
 	
 	public void setChDate(Date parDate){
 		this.chDate = parDate;
@@ -40,9 +43,12 @@ public class Evenement{
 		this.chNom = parNom;
 	}
 	
-	public void setChLieu(String parLieu){
-		this.chLieu = parLieu;
+	public void setChPoids(int parPoids) {
+		this.chPoids = parPoids;	
 	}
+//	public void setChLieu(String parLieu){
+//		this.chLieu = parLieu;
+//	}
 	
 //	public static Evenement lireEvenement() throws ExceptionDate{
 //		System.out.println("Entrer Date");
@@ -55,23 +61,21 @@ public class Evenement{
 //		return E;
 //	}//lireEvenement
 	
-	public int comparTo(Evenement parEvent){
+//	public int comparTo(Evenement parEvent){
 //		if (this.chDate.comparTo(parEvent.chDate)!=0)
-			{
+//			{
 //				return this.chDate.comparTo(parEvent.chDate);//les dates sont identiques
-			}
-		if(this.chNom.compareTo(parEvent.chNom)!=0)
-				return this.chNom.compareTo(parEvent.chNom);//les noms sont identiques
-		return this.chLieu.compareTo(parEvent.chLieu);
-	}//comparTo
+//			}
+//		if(this.chNom.compareTo(parEvent.chNom)!=0)
+//				return this.chNom.compareTo(parEvent.chNom);//les noms sont identiques
+//	}//comparTo
 
 	public JButton getSource() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public int getPoids() {
-		return this.chPoids;
-	}
+
+
 	
 }//Evenement

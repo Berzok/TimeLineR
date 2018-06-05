@@ -29,7 +29,6 @@ public class Controleur implements ActionListener
 		chPanelFormulaire = parPanelFormulaire;
 		chPanelTimeline = parPanelTimeline;
 		chPanelFormulaire.enregistreEcouteur(this);
-		chPanelCalendrier.enregistreEcouteur(this);
 		}
 	public void changerDateFormulaire(modele.Date parDate)
 		{

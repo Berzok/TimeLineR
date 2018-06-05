@@ -21,8 +21,8 @@ public class Agenda implements Comparable<Evenement> {
 	
 	// Question 1, 5
 	public void ajout(Evenement parEvt) {
-		listEvts.add(parEvt);
-//		arbreEvts.add(parEvt);
+//		listEvts.add(parEvt);
+		arbreEvts.add(parEvt);
 		//mapEvts.add(new GregorianCalendar.add(parEvt.getChDate()).get(Calendar.WEEK_OF_YEAR), parEvt) ;
 	}
 	
@@ -47,7 +47,7 @@ public class Agenda implements Comparable<Evenement> {
 		{
 		for(int i=0; i<this.listEvts.size(); i++)
 			{
-			System.out.println("Le "+ this.listEvts.get(i).getChDate() + ", " + this.listEvts.get(i).getChNom() + " à " + this.listEvts.get(i).getChLieu());
+			System.out.println("Le "+ this.listEvts.get(i).getChDate() + ", " + this.listEvts.get(i).getChNom());
 			}
 		}
 	
@@ -62,7 +62,7 @@ public class Agenda implements Comparable<Evenement> {
 	}
 	public String toString(int parIndice)
 		{
-		String leString =  "Le "+ this.listEvts.get(parIndice).getChDate() + ", " + this.listEvts.get(parIndice).getChNom() + " à " + this.listEvts.get(parIndice).getChLieu();
+		String leString =  "Le "+ this.listEvts.get(parIndice).getChDate() + ", " + this.listEvts.get(parIndice).getChNom();
 		return leString;
 		}
 	}
