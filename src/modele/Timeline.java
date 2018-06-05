@@ -5,8 +5,11 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.TreeMap;
 import java.util.TreeSet ;
+
+import javax.swing.event.TreeSelectionEvent;
 
 
 public class Timeline implements Serializable, Comparable<Evenement> {
@@ -16,9 +19,14 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	
 	// Question 1, 5
 	public Timeline() {
-		listEvts = new ArrayList<Evenement>();
 		arbreEvts = new TreeSet<Evenement>() ;
 		mapTimeline = new HashMap<Integer, Evenement>();
+	}
+	
+	public Timeline(TreeSet<Evenement> TreesetEvt) {
+		for(int i = 0 ; i < TreesetEvt.size() ; i ++) {
+			mapTimeline.put(i, ((List<Evenement>) TreesetEvt).get(i));
+		}
 	}
 	
 	// Question 1, 5
