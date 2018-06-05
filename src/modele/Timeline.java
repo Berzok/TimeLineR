@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.ArrayList ;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet ;
@@ -11,38 +12,47 @@ import java.util.TreeSet ;
 public class Timeline implements Serializable, Comparable<Evenement> {
 	private ArrayList<Evenement> listEvts ;
 	private TreeSet<Evenement> arbreEvts ;
-	private TreeMap<Integer,Evenement> mapEvts ;
+	private HashMap<Integer, Evenement> mapTimeline ;
 	
 	// Question 1, 5
 	public Timeline() {
 		listEvts = new ArrayList<Evenement>();
 		arbreEvts = new TreeSet<Evenement>() ;
-		mapEvts = new TreeMap<Integer, Evenement>();
+		mapTimeline = new HashMap<Integer, Evenement>();
 	}
 	
 	// Question 1, 5
-	public void ajout(Evenement parEvt) {
-		listEvts.add(parEvt);
-//		arbreEvts.add(parEvt);
-		//mapEvts.add(new GregorianCalendar.add(parEvt.getChDate()).get(Calendar.WEEK_OF_YEAR), parEvt) ;
+	public void ajout(int key , Evenement parEvt) {
+		mapTimeline.put(key, parEvt);
 	}
 	
+//	// Question 2
+//	public int compareTo( int key , Timeline timeline) {
+//		for(int i ; )
+//			if(timeline.get(key).getPoids() == timeline2.get(key).getPoids())
+//				Evenement nEvt = new Evenement(timeline2.get(key).getDate, timeline2.get(key).getNom, timeline2.get(key).getPoids - 1);
+//				timeline2.put(key, nEvt);
+//	}
+	
 	// Question 2
-	public int compareTo(Evenement parEvts) {
-		
-		return 0;
+	public void verifiePoids( int key , Timeline timeline) {
+		for(int i = 0 ; i < timeline.mapTimeline.size() ; i++)
+			if(timeline.mapTimeline.get(key).getPoids() == timeline.mapTimeline.get(i).getPoids()) {
+				Evenement nEvt = new Evenement(timeline.mapTimeline.get(key).getChDate(), timeline.mapTimeline.get(key).getChNom(), timeline.mapTimeline.get(key).getPoids() - 1);
+				timeline.mapTimeline.put(key, nEvt);
+			}
 	}
 	
 	
 	// Question 3
-	public int nbExpose() {
-		int iter = 0 ;// le nombre de fois où il y a "exposé" dans le titre
-		for(int index = 0 ; index < this.listEvts.size() ; index++) {
-			if(this.listEvts.get(index).getChNom().contains("exposé"))
-				iter++ ;
-		}
-		return iter;
-	}
+//	public int nbExpose() {
+//		int iter = 0 ;// le nombre de fois où il y a "exposé" dans le titre
+//		for(int index = 0 ; index < this.listEvts.size() ; index++) {
+//			if(this.listEvts.get(index).getChNom().contains("exposé"))
+//				iter++ ;
+//		}
+//		return iter;
+//	}
 	
 	public void afficherContenu()
 		{
@@ -52,20 +62,27 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 			}
 		}
 	
-	// Question 4
-	public int nbEvtEnregistre(Date parDate) {
-		int nbEvts = 0 ;
-		Iterator<Evenement> iter = this.arbreEvts.iterator();
-		while(iter.hasNext())
-			if (iter.next().getChDate().compareTo(parDate)==0)
-				nbEvts++ ;
-		return nbEvts ;
-	}
+//	// Question 4
+//	public int nbEvtEnregistre(Timeline parTimeline) {
+//		int nbEvts = 0 ;
+//		Iterator<Evenement> iter = this.arbreEvts.iterator();
+//		while(iter.hasNext())
+//			if (iter.next().getChDate().compareTo(parTimeline)==0)
+//				nbEvts++ ;
+//		return nbEvts ;
+//	}
+	
 	public String toString(int parIndice)
 		{
 		String leString =  "Le "+ this.listEvts.get(parIndice).getChDate() + ", " + this.listEvts.get(parIndice).getChNom() + " à " + this.listEvts.get(parIndice).getChLieu();
 		return leString;
 		}
+
+	@Override
+	public int compareTo(Evenement o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	}
 
 

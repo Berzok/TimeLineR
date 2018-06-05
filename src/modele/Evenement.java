@@ -9,11 +9,11 @@ public class Evenement{
 	private String chLieu;
 	private Integer chPoids;
 	
-	public Evenement(Date parDate, String parNom, String parLieu)
+	public Evenement(Date parDate, String parNom, int parPoids)
 		{
 		this.chDate = parDate;
 		this.chNom = parNom;
-		this.chLieu = parLieu;
+		this.chPoids = parPoids;
 		}//Constructeur
 	
 	public String toString(){
@@ -68,6 +68,10 @@ public class Evenement{
 	public JButton getSource() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public int getPoids() {
+		return this.chPoids;
 	}
 	
 }//Evenement
