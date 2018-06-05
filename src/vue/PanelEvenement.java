@@ -29,10 +29,10 @@ public class PanelEvenement extends JPanel
 		
 		
 		laTimeline = new Timeline();
-		laTimeline.ajout(new Evenement(new Date(5, 7, 1741), "Tourte", "Morrowind"));
-		laTimeline.ajout(new Evenement(new Date(13, 4, 2009), "Terezi", "Skaia"));
+		laTimeline.ajout(1, new Evenement(new Date(5, 7, 1741), "Tourte", 1));
+		laTimeline.ajout(2, new Evenement(new Date(13, 4, 2009), "Terezi", 2));
 
-		lePanelDetails = new PanelDetailsEvenement(new Evenement(new Date(13, 4, 2009), "Terezi", "Skaia"));
+		lePanelDetails = new PanelDetailsEvenement(new Evenement(new Date(13, 4, 2009), "Terezi", 2));
 		lePanelDetails.setLayout(new CardLayout());
 		
 		this.add(boutonPrevious, BorderLayout.WEST);

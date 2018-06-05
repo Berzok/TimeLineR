@@ -6,20 +6,17 @@ import javax.swing.JButton;
 public class Evenement{
 	private Date chDate;
 	private String chNom;
-	private String chLieu;
 	private Integer chPoids;
-	public static Integer nombre = 0;
 	
-	public Evenement(Date parDate, String parNom, String parLieu)
+	public Evenement(Date parDate, String parNom, int parPoids)
 		{
 		this.chDate = parDate;
 		this.chNom = parNom;
-		this.chLieu = parLieu;
-		this.nombre++;
+		this.chPoids = parPoids;
 		}//Constructeur
 	
 	public String toString(){
-		return chDate + " " + chNom + " " + chLieu;
+		return chDate + " " + chNom + " " + chPoids;
 	}//toString
 	
 	public Date getChDate(){
@@ -30,8 +27,8 @@ public class Evenement{
 		return this.chNom;
 	}//Accesseur Nom
 	
-	public String getChLieu(){
-		return this.chLieu;
+	public Integer getChPoids(){
+		return this.chPoids;
 	}//Accesseur Lieu
 	
 	public void setChDate(Date parDate){
@@ -42,8 +39,8 @@ public class Evenement{
 		this.chNom = parNom;
 	}
 	
-	public void setChLieu(String parLieu){
-		this.chLieu = parLieu;
+	public void setChLieu(Integer parPoids){
+		this.chPoids = parPoids;
 	}
 	
 //	public static Evenement lireEvenement() throws ExceptionDate{
@@ -57,19 +54,22 @@ public class Evenement{
 //		return E;
 //	}//lireEvenement
 	
-	public int comparTo(Evenement parEvent){
-//		if (this.chDate.comparTo(parEvent.chDate)!=0)
-			{
-//				return this.chDate.comparTo(parEvent.chDate);//les dates sont identiques
-			}
+	public int comparTo(Evenement parEvent)
+		{
 		if(this.chNom.compareTo(parEvent.chNom)!=0)
 				return this.chNom.compareTo(parEvent.chNom);//les noms sont identiques
-		return this.chLieu.compareTo(parEvent.chLieu);
-	}//comparTo
+		return this.chPoids.compareTo(parEvent.chPoids);
+		}//comparTo
 
-	public JButton getSource() {
+	public JButton getSource()
+		{
 		// TODO Auto-generated method stub
 		return null;
-	}
+		}
+
+	public int getPoids()
+		{
+		return this.chPoids;
+		}
 	
 }//Evenement
