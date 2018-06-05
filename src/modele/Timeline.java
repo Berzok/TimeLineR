@@ -45,9 +45,11 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	// Question 2
 	public void verifiePoids( int key , Timeline timeline) {
 		for(int i = 0 ; i < timeline.mapTimeline.size() ; i++)
-			if(timeline.mapTimeline.get(key).getPoids() == timeline.mapTimeline.get(i).getPoids()) {
-				Evenement nEvt = new Evenement(timeline.mapTimeline.get(key).getChDate(), timeline.mapTimeline.get(key).getChNom(), timeline.mapTimeline.get(key).getPoids() - 1);
-				timeline.mapTimeline.put(key, nEvt);
+			if(timeline.mapTimeline.get(key).getChDate() == timeline.mapTimeline.get(i).getChDate()) {
+				if(timeline.mapTimeline.get(key).getPoids() == timeline.mapTimeline.get(i).getPoids()) {
+					Evenement nEvt = new Evenement(timeline.mapTimeline.get(key).getChDate(), timeline.mapTimeline.get(key).getChNom(), timeline.mapTimeline.get(key).getPoids() - 1);
+					timeline.mapTimeline.put(key, nEvt);
+				}
 			}
 	}
 	
