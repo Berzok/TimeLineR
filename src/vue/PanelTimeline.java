@@ -33,7 +33,7 @@ public class PanelTimeline extends JPanel
 		leAgenda.ajout(new Evenement(new Date(13, 4, 2009), "Terezi", "Skaia"));
 		leAgenda.afficherContenu();
 		
-		this.setForeground(new Color(35, 46, 180));
+		this.setForeground(new Color(0, 0, 0));
 		this.setBackground(getForeground());
 		
 		timeLine = new JTable();

@@ -18,7 +18,7 @@ public class PanelEvenement extends JPanel
 	public PanelEvenement() throws ParseException
 		{
 		this.setLayout(new GridLayout(0, 3));
-		this.setForeground(new Color(35, 46, 180));
+		this.setForeground(new Color(0, 0, 0));
 		this.setBackground(getForeground());
 		lePanelDetails = new PanelDetailsEvenement();
 		laTimeline = new Timeline();
@@ -28,4 +28,8 @@ public class PanelEvenement extends JPanel
 		this.add(lePanelDetails);
 		this.add(boutonNext);
 		}
+	public void enregistreEcouteur(Controleur controleur) {
+		// TODO Auto-generated method stub
+		
+	}
 	}

@@ -14,18 +14,20 @@ import modele.*;
 
 public class Controleur implements ActionListener
 	{
-	static Timeline chAgenda;
-	static PanelFormulaire chPanelFormulaire;
-	static PanelCalendrier chPanelCalendrier;
-	static PanelAgenda chPanelAgenda;
+	Timeline chTimeline;
+	PanelDetailsEvenement chPanelDetailsEvenement;
+	PanelEvenement chPanelEvenement;
+	PanelFormulaire chPanelFormulaire;
+	PanelTimeline chPanelTimeline;
 	static modele.Date chDate;
 	
-	public Controleur (Timeline parAgenda, PanelFormulaire parPanelForm, PanelCalendrier parPanelCalend, PanelAgenda parPanelAgend)
+	public Controleur(Timeline parTimeline, PanelDetailsEvenement parPanelDetails, PanelEvenement parPanelEvenement, PanelFormulaire parPanelFormulaire, PanelTimeline parPanelTimeline)
 		{
-		chAgenda = parAgenda;
-		chPanelFormulaire = parPanelForm;
-		chPanelCalendrier = parPanelCalend;
-		chPanelAgenda = parPanelAgend;
+		chTimeline = parTimeline;
+		chPanelDetailsEvenement = parPanelDetails;
+		chPanelEvenement = parPanelEvenement;
+		chPanelFormulaire = parPanelFormulaire;
+		chPanelTimeline = parPanelTimeline;
 		chPanelFormulaire.enregistreEcouteur(this);
 		chPanelCalendrier.enregistreEcouteur(this);
 		}
