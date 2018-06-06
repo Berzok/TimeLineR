@@ -2,6 +2,7 @@ package modele;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet ;
 
 
@@ -26,6 +27,10 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		mapTimeline.put(mapTimeline.size(), parEvt);
 	}
 	
+	public void ajout(Integer key, Evenement parEvt){
+		mapTimeline.put(key, parEvt);
+	}
+	
 	public Evenement getEvenement(Integer key){
 		return mapTimeline.get(key);
 	}
@@ -34,21 +39,21 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		return this.mapTimeline.size();
 	}
 	
-	public Integer getSameEvents(){
-		Integer nombre = 0;
-		Evenement[] valeur = mapTimeline.values().toArray(new Evenement[mapTimeline.size()]);
-		for(int i=0; i<valeur.length; i++)
+	
+	
+	
+	public Integer getKey(Evenement parEvt)
+		{
+		for(Integer key : mapTimeline.keySet())
 			{
-			for(int j=i+1; j<valeur.length; j++)
+			if(mapTimeline.get(key).equals(parEvt))
 				{
-				if(valeur[i]==valeur[j])
-					{
-					nombre++;
-					}
+				return key;
 				}
 			}
-		return nombre;
-	}
+		return 1;
+		}
+	
 	
 	public Integer getMaxPoidsEvent(){
 		Integer nombre = 0;

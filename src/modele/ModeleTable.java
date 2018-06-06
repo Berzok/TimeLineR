@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 @SuppressWarnings("serial")
 public class ModeleTable extends DefaultTableModel
 	{
-	String[] defautColonnes;
+	static String[] defautColonnes;
 	
 	public ModeleTable(Timeline parTimeline)
 		{
@@ -48,10 +48,15 @@ public class ModeleTable extends DefaultTableModel
 			{
 		    valeur2.add(String.valueOf(i));
 			}
-		String[] defautColonnes2 = valeur2.toArray(new String[valeur2.size()]);
-		this.setColumnIdentifiers(defautColonnes2);
+		String[] defautColonnes = valeur2.toArray(new String[valeur2.size()]);
+		this.setColumnIdentifiers(defautColonnes);
 		this.setColumnCount(defautColonnes.length);
 		this.setRowCount(parTimeline.getMaxPoidsEvent());
 		System.out.println(defautColonnes.length);
+		}
+	
+	
+	public static String[] getTableHeader(){
+		return defautColonnes;
 		}
 	}

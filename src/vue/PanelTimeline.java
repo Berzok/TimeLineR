@@ -1,4 +1,6 @@
 package vue;
+import modele.Evenement;
+import modele.ModeleTable;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -20,6 +22,7 @@ public class PanelTimeline extends JPanel
 	Timeline laTimeline;
 	JTable timeLine;
 	JScrollPane leScroll;
+	String[] chHeader;
 	public PanelTimeline(Controleur parControleur) throws ParseException
     	{
 		chControleur = parControleur;
@@ -47,7 +50,7 @@ public class PanelTimeline extends JPanel
 	    leScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 	    this.add(leScroll);
 	    
-	    
+	    chHeader = ModeleTable.getTableHeader();
 	    
 	    timeLine.addMouseListener(new MouseAdapter()
 	    	{
@@ -58,11 +61,10 @@ public class PanelTimeline extends JPanel
 	    	    int col = timeLine.columnAtPoint(e.getPoint());
 	    	    if (row >= 0 && col >= 0)
 	    	        {
-	    			System.out.println("Yay: ");
 	    			PanelFormulaire formulaire;
 					try
 						{
-						formulaire = new PanelFormulaire(chControleur);
+						formulaire = new PanelFormulaire(chControleur, chHeader, col, row);
 						formulaire.setVisible(true);
 						}
 					catch (ParseException e1)
@@ -70,7 +72,6 @@ public class PanelTimeline extends JPanel
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 						}
-	    	    	timeLine.setValueAt(col + "" + row, row, col);
 	    			if(timeLine.getColumnCount() < laTimeline.getSize() || timeLine.getRowCount() < laTimeline.getMaxPoidsEvent())
 	    				{
 	    				timeLine.setModel(new ModeleTable(Controleur.chTimeline));
@@ -83,8 +84,9 @@ public class PanelTimeline extends JPanel
 	    
 	    }
 	
-	public void actualiserTimeline()
+	public void actualiserTimeline(Evenement parEvt, Integer parCol, Integer parRow)
 		{
-		
+		timeLine.setValueAt(parEvt.getChNom(), parRow, parCol);
+		timeLine.repaint();
 		}
 	}

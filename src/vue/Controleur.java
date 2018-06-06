@@ -24,9 +24,15 @@ public class Controleur implements ActionListener
 		{
 		if(parEvent.getSource().equals(chPanelFormulaire.lePanel.chValidation))
 			{
-			chTimeline.ajout(chPanelFormulaire.getEvenement());
+			Evenement leEvent;
+			Integer key = chTimeline.getKey(chPanelFormulaire.getEvenement());
+			leEvent = chPanelFormulaire.getEvenement();
+			chTimeline.ajout(key, leEvent);
+			chPanelTimeline.timeLine.setModel(new ModeleTable(Controleur.chTimeline));
+			System.out.println("Colonne: " + chPanelFormulaire.getCol());
+			chPanelTimeline.timeLine.setValueAt(leEvent.getChNom(), chPanelFormulaire.getCol(), 0);
 			chPanelFormulaire.execute_order_66();
-			LectureEcriture.ecriture(new File("save/saveload.ser"), chTimeline);//
+			LectureEcriture.ecriture(new File("save/saveload.ser"), chTimeline);
 			}
 		}
 	

@@ -25,11 +25,14 @@ public class PanelFormulaire extends JDialog implements ActionListener
 	public PanelFils lePanel;
 	private Controleur leControleur;
 	private Evenement chEvenement;
+	private Integer chAnnee;
+	private Integer chCol;
+	private Integer chRow;
 	
 	class PanelFils extends JPanel
 		{
 		private JTextArea chTitreEvent;
-		private JTextArea chDateEvent;
+//		private JTextArea chDateEvent;
 		private JComboBox<String> chImportance;
 		private JTextArea chDescEvent;
 		public JButton chValidation = new JButton("Valider");
@@ -49,16 +52,16 @@ public class PanelFormulaire extends JDialog implements ActionListener
 			add(chTitreEvent);
 			
 			
-			JLabel labelDebut = new JLabel("Ann\u00E9e");
-			labelDebut.setFont(new Font("Tahoma", Font.BOLD, 12));
-			add(labelDebut);			
-			chDateEvent = new JTextArea();
-			chDateEvent.setColumns(70);
-			add(chDateEvent);
+//			JLabel labelDebut = new JLabel("Ann\u00E9e");
+//			labelDebut.setFont(new Font("Tahoma", Font.BOLD, 12));
+//			add(labelDebut);			
+//			chDateEvent = new JTextArea();
+//			chDateEvent.setColumns(70);
+//			add(chDateEvent);
 			
 			
 			JLabel labelImportance = new JLabel("Importance: ");
-			labelDebut.setFont(new Font("Tahoma", Font.BOLD, 12));
+			labelImportance.setFont(new Font("Tahoma", Font.BOLD, 12));
 			String[] laListe = {"1", "2", "3", "4", "5"};
 			chImportance = new JComboBox<String>(laListe);
 			add(labelImportance);
@@ -96,7 +99,7 @@ public class PanelFormulaire extends JDialog implements ActionListener
 	 * Create the panel.
 	 * @throws ParseException 
 	 */
-	public PanelFormulaire(Controleur parControleur) throws ParseException
+	public PanelFormulaire(Controleur parControleur, String[] parHeader, Integer parCol, Integer parRow) throws ParseException
 		{
 		this.setModal(true);
 		this.setTitle("Ajouter un évènement");
@@ -106,6 +109,13 @@ public class PanelFormulaire extends JDialog implements ActionListener
 		leControleur = parControleur;
 		leControleur.chPanelFormulaire = this;
 		
+		chCol = parCol;
+		chRow = parRow;
+		chAnnee = Integer.parseInt(parHeader[parCol]);
+		
+		
+		System.out.println("Colonne: " + parCol);
+		System.out.println("Ligne:   " + parRow);
 		
 		lePanel = new PanelFils();
 		add(lePanel);
@@ -124,11 +134,21 @@ public class PanelFormulaire extends JDialog implements ActionListener
 		return chEvenement;
 		}
 	
+	public Integer getRow()
+		{
+		return chRow;
+		}
+	public Integer getCol(){
+		return chCol;
+	}
+	
+	
 	public String getTitre(){
 		return this.lePanel.chTitreEvent.getText();
 		}
 	public Date getDate(){
-		return new Date(1, 1, Integer.parseInt(this.lePanel.chDateEvent.getText()));
+		return new Date(1, 1, chAnnee);
+//		return new Date(1, 1, Integer.parseInt(this.lePanel.chDateEvent.getText()));
 		}
 	public String getDesc(){
 		return this.lePanel.chDescEvent.getText();
