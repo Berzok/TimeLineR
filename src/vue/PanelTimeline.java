@@ -1,22 +1,14 @@
 package vue;
 import javax.swing.JPanel;
-import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.table.DefaultTableModel;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.text.ParseException;
 
 import modele.Date;
@@ -25,16 +17,18 @@ import modele.ModeleTable;
 import modele.Timeline;
 
 
+@SuppressWarnings("serial")
 public class PanelTimeline extends JPanel
 	{
 	Controleur chControleur;
-	Timeline leAgenda;
+	Timeline laTimeline;
 	JTable timeLine;
 	JScrollPane leScroll;
 	public PanelTimeline(Controleur parControleur) throws ParseException
     	{
 		chControleur = parControleur;
-		chControleur.chPanelTimeline = this; 
+		chControleur.chPanelTimeline = this;
+		laTimeline = Controleur.chTimeline;
 		
 		
 		this.setLayout(new BorderLayout(0 , 0));
@@ -44,7 +38,7 @@ public class PanelTimeline extends JPanel
 		
 		timeLine = new JTable();
 		timeLine.setDefaultEditor(Object.class, null);
-		timeLine.setModel(new ModeleTable(chControleur.chTimeline));
+		timeLine.setModel(new ModeleTable(Controleur.chTimeline));
 		//    timeLine.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		timeLine.getTableHeader().setReorderingAllowed(false);
 		this.add(timeLine, BorderLayout.CENTER);
@@ -68,28 +62,28 @@ public class PanelTimeline extends JPanel
 	    	    int col = timeLine.columnAtPoint(e.getPoint());
 	    	    if (row >= 0 && col >= 0)
 	    	        {
-	    	    	timeLine.setValueAt(row + "" + col, row, col);
-	    	        System.out.println("Ligne: " + row);
+	    	    	laTimeline.ajout(3, new Evenement(new Date(), "Oui", "Bonjour bonjour", 1));
+	    	    	laTimeline.afficherContenu();
+	    	    	timeLine.setValueAt(col + "" + row, row, col);
 	    	        System.out.println("Colonne: " + col);
+	    	        System.out.println("Ligne: " + row);
+	    	        System.out.println("Colonnes JTabel: " + timeLine.getColumnCount());
+	    			if(timeLine.getColumnCount() < laTimeline.getSize())
+	    				{
+	    				timeLine.setModel(new ModeleTable(Controleur.chTimeline));
+	    				}
+	    			timeLine.revalidate();
+	    			timeLine.repaint();
 	    	        }
 	    		}
 	    	});
 	    
-	    this.actualiserTimeline(timeLine, chControleur.chTimeline);
+	    this.actualiserTimeline(timeLine, Controleur.chTimeline);
 	    
 	    }
 	
 	public void actualiserTimeline(JTable timeLine, Timeline laTimeline)
 		{
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				
-				try {
-					timeLine.repaint();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		
 		}
 	}

@@ -1,26 +1,17 @@
 package vue;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.util.TreeMap;
-
-import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 import modele.Evenement;
 
 
+@SuppressWarnings("serial")
 public class PanelDetailsEvenement extends JPanel
 	{
 	private JTextArea leTexte;
@@ -47,14 +38,6 @@ public class PanelDetailsEvenement extends JPanel
 		lePanel.add(leTexte);
 		this.add(laImage);
 		this.add(lePanel);
-		
-		
-		JPanel card0 = new JPanel();
-		
-		
-		}
-	private void createCard()
-		{
 		
 		}
 	}

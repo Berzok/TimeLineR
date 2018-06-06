@@ -1,5 +1,6 @@
 package vue;
 
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -37,7 +38,24 @@ public class Controleur implements ActionListener
 			
 			}
 		}
-
+	
+	private void synchroTimelines()
+		{
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					for(int i=0; i<chTimeline.getSize(); i++)
+						{
+						
+						}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		}
+	
+	
 	public void finaliserControleur(){
 		chPanelTimeline.enregistreEcouteur(this);
 		chPanelEvenement.enregistreEcouteur(this);

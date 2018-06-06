@@ -3,18 +3,18 @@ import java.util.GregorianCalendar;
 import java.util.Calendar;
  
 public class Date implements Comparable <Date> {
-  private int jour;
-  private int mois;
-  private int annee;
-  private int jourSemaine ;  
+	private int jour;
+	private int mois;
+	private int annee;
+	private int jourSemaine ;  
    
-  public Date ()   { 
-	  GregorianCalendar dateAuj = new GregorianCalendar ();
-	  annee = dateAuj.get (Calendar.YEAR);
-	  mois = dateAuj.get (Calendar.MONTH)+1; // janvier = 0, fevrier = 1...
-	  jour = dateAuj.get (Calendar.DAY_OF_MONTH);
-	  jourSemaine = dateAuj.get (Calendar.DAY_OF_WEEK);
-  }
+	public Date ()   { 
+		GregorianCalendar dateAuj = new GregorianCalendar ();
+		annee = dateAuj.get (Calendar.YEAR);
+		mois = dateAuj.get (Calendar.MONTH)+1; // janvier = 0, fevrier = 1...
+		jour = dateAuj.get (Calendar.DAY_OF_MONTH);
+		jourSemaine = dateAuj.get (Calendar.DAY_OF_WEEK);
+	}
   
   public Date (int parJour, int parMois, int parAnnee)   {   
 	jour = parJour;
