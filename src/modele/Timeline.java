@@ -34,7 +34,7 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		return this.mapTimeline.size();
 	}
 	
-	public Integer getEventsDiff(){
+	public Integer getSameEvents(){
 		Integer nombre = 0;
 		Evenement[] valeur = mapTimeline.values().toArray(new Evenement[mapTimeline.size()]);
 		for(int i=0; i<valeur.length; i++)
@@ -45,6 +45,19 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 					{
 					nombre++;
 					}
+				}
+			}
+		return nombre;
+	}
+	
+	public Integer getMaxPoidsEvent(){
+		Integer nombre = 0;
+		Evenement[] valeur = mapTimeline.values().toArray(new Evenement[mapTimeline.size()]);
+		for(int i=0; i<valeur.length; i++)
+			{
+			if(valeur[i].getChPoids()>nombre)
+				{
+				nombre = valeur[i].getChPoids();
 				}
 			}
 		return nombre;

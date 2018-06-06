@@ -17,7 +17,7 @@ public class ModeleTable extends DefaultTableModel
 		String[] defautColonnes = {"1", "2", "3", "4", "5", "6", "7"};
 		this.setColumnIdentifiers(defautColonnes);
 		this.setColumnCount(7);
-		this.setRowCount(4);
+		this.setRowCount(3);
 		
 		
 		
@@ -33,7 +33,7 @@ public class ModeleTable extends DefaultTableModel
 			}
 		this.setColumnIdentifiers(defautColonnes);
 		this.setColumnCount(defautColonnes.length);
-		this.setRowCount(4);
+		this.setRowCount(parTimeline.getMaxPoidsEvent());
 		System.out.println(defautColonnes.length);
 		}
 	}

@@ -10,6 +10,7 @@ import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
+import java.util.Random;
 
 import modele.Date;
 import modele.Evenement;
@@ -62,13 +63,14 @@ public class PanelTimeline extends JPanel
 	    	    int col = timeLine.columnAtPoint(e.getPoint());
 	    	    if (row >= 0 && col >= 0)
 	    	        {
-	    	    	laTimeline.ajout(3, new Evenement(new Date(), "Oui", "Bonjour bonjour", 1));
+	    	    	laTimeline.ajout(3, new Evenement(new Date(), "Oui", "Bonjour bonjour", 5 + (int)(Math.random() * ((3) + 1))));
 	    	    	laTimeline.afficherContenu();
+	    	    	System.out.println("Yay: " + (5 + (int)(Math.random() * ((3) + 1))));
 	    	    	timeLine.setValueAt(col + "" + row, row, col);
 	    	        System.out.println("Colonne: " + col);
 	    	        System.out.println("Ligne: " + row);
 	    	        System.out.println("Colonnes JTabel: " + timeLine.getColumnCount());
-	    			if(timeLine.getColumnCount() < laTimeline.getSize())
+	    			if(timeLine.getColumnCount() < laTimeline.getSize() || timeLine.getRowCount() < laTimeline.getMaxPoidsEvent())
 	    				{
 	    				timeLine.setModel(new ModeleTable(Controleur.chTimeline));
 	    				}
@@ -78,11 +80,9 @@ public class PanelTimeline extends JPanel
 	    		}
 	    	});
 	    
-	    this.actualiserTimeline(timeLine, Controleur.chTimeline);
-	    
 	    }
 	
-	public void actualiserTimeline(JTable timeLine, Timeline laTimeline)
+	public void actualiserTimeline()
 		{
 		
 		}
