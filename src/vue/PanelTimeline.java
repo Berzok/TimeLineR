@@ -25,8 +25,12 @@ public class PanelTimeline extends JPanel
 	Controleur chControleur;
 	Timeline leAgenda;
 	JTable timeLine;
-	public PanelTimeline() throws ParseException
+	public PanelTimeline(Controleur parControleur) throws ParseException
     	{
+		chControleur = parControleur;
+		chControleur.chPanelTimeline = this; 
+		
+		
 		this.setLayout(new BorderLayout(0 , 0));
 		
 		this.setForeground(new Color(0, 0, 0));

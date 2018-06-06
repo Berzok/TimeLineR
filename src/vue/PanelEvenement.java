@@ -20,8 +20,12 @@ public class PanelEvenement extends JPanel
 	PanelDetailsEvenement lePanelDetails;
 	JButton boutonPrevious = new JButton("<<");
 	JButton boutonNext = new JButton(">>");
-	public PanelEvenement() throws ParseException, IOException
+	public PanelEvenement(Controleur parControleur) throws ParseException, IOException
 		{
+		chControleur = parControleur;
+		
+		chControleur.chPanelEvenement = this;
+		
 		this.setForeground(new Color(0, 0, 0));
 		this.setBackground(getForeground());
 		
@@ -31,6 +35,8 @@ public class PanelEvenement extends JPanel
 		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(13, 4, 2009), "Terezi", "Terezi est pas aveugle", 1));
 
 		lePanelDetails = new PanelDetailsEvenement(laTimeline.getEvenement(0));
+		
+		chControleur.chPanelDetailsEvenement = lePanelDetails;
 		
 		this.add(boutonPrevious, BorderLayout.WEST);
 		this.add(lePanelDetails, BorderLayout.CENTER);

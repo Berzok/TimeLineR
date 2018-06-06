@@ -15,6 +15,7 @@ import javax.swing.JMenuItem;
 @SuppressWarnings("serial")
 public class FenetreAgenda extends JFrame {
 	
+	public Controleur leControleur;
 	public JMenuBar menuBar = new JMenuBar();
 	public JMenu menuTimeline = new JMenu("Timelines");
 	public JMenu menuAdd = new JMenu("Ajouts");
@@ -50,8 +51,11 @@ public class FenetreAgenda extends JFrame {
 		setBounds(100, 100, 450, 300);
 		setSize(750, 450);
 		this.setLayout(new GridLayout(2, 0));
-		PanelEvenement panelNord = new PanelEvenement();
-		PanelTimeline panelFrise = new PanelTimeline();
+		
+		Controleur leControleur = new Controleur();
+		
+		PanelEvenement panelNord = new PanelEvenement(leControleur);
+		PanelTimeline panelFrise = new PanelTimeline(leControleur);
 		
 		this.add(panelNord, BorderLayout.NORTH);
 		this.add(panelFrise, BorderLayout.SOUTH);
