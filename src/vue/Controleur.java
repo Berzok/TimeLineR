@@ -27,10 +27,11 @@ public class Controleur implements ActionListener
 			Evenement leEvent;
 			Integer key = chTimeline.getKey(chPanelFormulaire.getEvenement());
 			leEvent = chPanelFormulaire.getEvenement();
+			System.out.println(key);
 			chTimeline.ajout(key, leEvent);
 			chPanelTimeline.timeLine.setModel(new ModeleTable(Controleur.chTimeline));
 			System.out.println("Colonne: " + chPanelFormulaire.getCol());
-			chPanelTimeline.timeLine.setValueAt(leEvent.getChNom(), chPanelFormulaire.getCol(), 0);
+			chPanelTimeline.timeLine.setValueAt(leEvent.getChNom(), chPanelFormulaire.getImportance()-1, chPanelFormulaire.getCol());
 			chPanelFormulaire.execute_order_66();
 			LectureEcriture.ecriture(new File("save/saveload.ser"), chTimeline);
 			}

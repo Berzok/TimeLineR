@@ -154,7 +154,7 @@ public class PanelFormulaire extends JDialog implements ActionListener
 		return this.lePanel.chDescEvent.getText();
 		}
 	public Integer getImportance(){
-		return this.lePanel.chImportance.getSelectedIndex();
+		return this.lePanel.chImportance.getSelectedIndex()+1;
 		}
 
 	public void actionPerformed(ActionEvent parEvent){

@@ -57,8 +57,10 @@ public class PanelTimeline extends JPanel
 	    	@Override
 	    	public void mouseClicked(MouseEvent e)
 	    		{
+	    		System.out.println("Il y a " + timeLine.getColumnCount() + " colonnes");
 	    		int row = timeLine.rowAtPoint(e.getPoint());
 	    	    int col = timeLine.columnAtPoint(e.getPoint());
+	    	    System.out.println("Il y a " + col + " colonnes");
 	    	    if (row >= 0 && col >= 0)
 	    	        {
 	    			PanelFormulaire formulaire;
@@ -72,10 +74,6 @@ public class PanelTimeline extends JPanel
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 						}
-	    			if(timeLine.getColumnCount() < laTimeline.getSize() || timeLine.getRowCount() < laTimeline.getMaxPoidsEvent())
-	    				{
-	    				timeLine.setModel(new ModeleTable(Controleur.chTimeline));
-	    				}
 	    			timeLine.revalidate();
 	    			timeLine.repaint();
 	    	        }
