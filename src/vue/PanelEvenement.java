@@ -52,6 +52,7 @@ public class PanelEvenement extends JPanel
 		{
 		Timeline laTimeline = new Timeline();
 		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(1, 1, 1900), "Nouvel an", "Début du XXème siècle", 0));
+		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(14, 6, 1934), "Date au pif", "14 juin de l'année 1943", 1));
 		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(31, 12, 1999), "Terezi", "Fin du XXème siècle", 1));
 		return laTimeline;
 		}

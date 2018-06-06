@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,15 +68,28 @@ public class PanelTimeline extends JPanel
 	    	    int col = timeLine.columnAtPoint(e.getPoint());
 	    	    if (row >= 0 && col >= 0)
 	    	        {
+	    	    	timeLine.setValueAt(row + "" + col, row, col);
 	    	        System.out.println("Ligne: " + row);
 	    	        System.out.println("Colonne: " + col);
 	    	        }
 	    		}
 	    	});
+	    
+	    this.actualiserTimeline(timeLine, chControleur.chTimeline);
+	    
 	    }
 	
-	public void actualiserTimeline()
+	public void actualiserTimeline(JTable timeLine, Timeline laTimeline)
 		{
-		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				
+				try {
+					timeLine.repaint();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		}
 	}

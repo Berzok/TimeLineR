@@ -7,7 +7,10 @@ public class ModeleTable extends DefaultTableModel
 	{
 	public ModeleTable(Timeline parTimeline)
 		{
-		this.finaliserTable();
+		if(parTimeline.equals(null))
+			new ModeleTable();
+		
+		this.finaliserTable(parTimeline);
 		}
 	public ModeleTable()
 		{
@@ -18,10 +21,10 @@ public class ModeleTable extends DefaultTableModel
 		
 		
 		
-		this.finaliserTable();
 		
 		}
-	private void finaliserTable()
+	
+	private void finaliserTable(Timeline parTimeline)
 		{
 		
 		}
