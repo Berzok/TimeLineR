@@ -1,5 +1,8 @@
 package modele;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import javax.swing.table.DefaultTableModel;
 
 
@@ -31,7 +34,16 @@ public class ModeleTable extends DefaultTableModel
 			{
 			defautColonnes[i] = parTimeline.getEvenement(i).getChDate().getAnnee() + "";
 			}
-		this.setColumnIdentifiers(defautColonnes);
+		ArrayList<String> valeur = new ArrayList<String>();
+		for(int i=0; i<defautColonnes.length; i++)
+			{
+			valeur.add(defautColonnes[i]);
+			}
+		System.out.println(valeur);
+		Collections.sort(valeur);
+		System.out.println(valeur);
+		String[] defautColonnes2 = valeur.toArray(new String[valeur.size()]);
+		this.setColumnIdentifiers(defautColonnes2);
 		this.setColumnCount(defautColonnes.length);
 		this.setRowCount(parTimeline.getMaxPoidsEvent());
 		System.out.println(defautColonnes.length);

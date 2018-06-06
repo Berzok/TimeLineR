@@ -1,13 +1,7 @@
 package vue;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.util.Date;
-
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 import modele.*;
 
@@ -22,20 +16,16 @@ public class Controleur implements ActionListener
 	PanelTimeline chPanelTimeline;
 	static modele.Date chDate;
 	
-	public Controleur()
-		{
-		
-		}
-	public void changerDateFormulaire(modele.Date parDate)
-		{
-		System.out.println("Controleur ok");
-		chPanelFormulaire.setDate(parDate);
-		}
+	public Controleur(){
+	}
+	
 	public void actionPerformed(ActionEvent parEvent)
 		{
 		if(parEvent.getSource().equals(chPanelFormulaire.lePanel.chValidation))
 			{
-			System.out.println("trouvé");
+			chTimeline.ajout(chPanelFormulaire.getEvenement());
+			chPanelFormulaire.execute_order_66();
+			chTimeline.afficherContenu();
 			}
 		}
 	

@@ -22,8 +22,8 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	}
 	
 	// Question 1, 5
-	public void ajout(int key , Evenement parEvt) {
-		mapTimeline.put(key, parEvt);
+	public void ajout(Evenement parEvt) {
+		mapTimeline.put(mapTimeline.size(), parEvt);
 	}
 	
 	public Evenement getEvenement(Integer key){

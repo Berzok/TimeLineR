@@ -126,17 +126,20 @@ public class PanelFormulaire extends JDialog implements ActionListener
 	
 	public String getTitre(){
 		return this.lePanel.chTitreEvent.getText();
-	}
+		}
 	public Date getDate(){
-		return new Date(1, 1, Integer.getInteger(this.lePanel.chDateEvent.getText()));
-	}
+		return new Date(1, 1, Integer.parseInt(this.lePanel.chDateEvent.getText()));
+		}
 	public String getDesc(){
 		return this.lePanel.chDescEvent.getText();
-	}
+		}
 	public Integer getImportance(){
 		return this.lePanel.chImportance.getSelectedIndex();
-	}
+		}
 
 	public void actionPerformed(ActionEvent parEvent){
 		}
+	public void execute_order_66(){
+		this.dispose();
+	}
 }
