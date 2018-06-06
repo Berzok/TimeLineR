@@ -1,27 +1,20 @@
 package modele;
 import java.io.Serializable;
-import java.util.ArrayList ;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.TreeMap;
 import java.util.TreeSet ;
 
-import javax.swing.event.TreeSelectionEvent;
 
-
+@SuppressWarnings("serial")
 public class Timeline implements Serializable, Comparable<Evenement> {
-	private TreeSet<Evenement> arbreEvts;
 	private HashMap<Integer, Evenement> mapTimeline;
 	
 	// Question 1, 5
 	public Timeline() {
-		arbreEvts = new TreeSet<Evenement>() ;
 		mapTimeline = new HashMap<Integer, Evenement>();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Timeline(TreeSet<Evenement> TreesetEvt) {
 		for(int i = 0 ; i < TreesetEvt.size() ; i ++) {
 			mapTimeline.put(i, ((List<Evenement>) TreesetEvt).get(i));
@@ -40,6 +33,38 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	public Integer getSize(){
 		return this.mapTimeline.size();
 	}
+	
+	public Integer getSameEvents(){
+		Integer nombre = 0;
+		Evenement[] valeur = mapTimeline.values().toArray(new Evenement[mapTimeline.size()]);
+		for(int i=0; i<valeur.length; i++)
+			{
+			for(int j=i+1; j<valeur.length; j++)
+				{
+				if(valeur[i]==valeur[j])
+					{
+					nombre++;
+					}
+				}
+			}
+		return nombre;
+	}
+	
+	public Integer getMaxPoidsEvent(){
+		Integer nombre = 0;
+		Evenement[] valeur = mapTimeline.values().toArray(new Evenement[mapTimeline.size()]);
+		for(int i=0; i<valeur.length; i++)
+			{
+			if(valeur[i].getChPoids()>nombre)
+				{
+				nombre = valeur[i].getChPoids();
+				}
+			}
+		return nombre;
+	}
+
+	
+	
 	
 //	// Question 2
 //	public int compareTo( int key , Timeline timeline) {
@@ -73,7 +98,6 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	
     public void afficherContenu()
     	{
-    	System.out.println(this.mapTimeline.get(1).getChDate());
     	for(int i=1; i<this.mapTimeline.size(); i++)
     		{
     		System.out.println("Le "+ this.mapTimeline.get(i).getChDate() + ", " + this.mapTimeline.get(i).getChNom());

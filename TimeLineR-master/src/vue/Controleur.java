@@ -1,5 +1,6 @@
 package vue;
 
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -30,14 +31,42 @@ public class Controleur implements ActionListener
 		System.out.println("Controleur ok");
 		chPanelFormulaire.setDate(parDate);
 		}
+	@Override
 	public void actionPerformed(ActionEvent parEvent)
 		{
+	        if (parEvent.getActionCommand().equals("Valider")) {
+	            Evenement evt = PanelFormulaire.getEvenement();
+	            chTimeline.ajout(chTimeline.getSize() +1, evt);
+	            // mise à jour de la JTable
+	            chPanelTimeline.ajoutEvenement(evt);
+	            // ecriture de l'evenement dans le fichier
+	            LectureEcriture.ecriture(fichier, chTimeline);// ICI
+	            // les champs du formulaires sonr re-initialisés
+	            chPanelFormulaire.reset();
+	        }
 		if(parEvent.getSource().getClass().equals(chPanelTimeline))
 			{
 			
 			}
 		}
-
+	
+	private void synchroTimelines()
+		{
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					for(int i=0; i<chTimeline.getSize(); i++)
+						{
+						
+						}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		}
+	
+	
 	public void finaliserControleur(){
 		chPanelTimeline.enregistreEcouteur(this);
 		chPanelEvenement.enregistreEcouteur(this);

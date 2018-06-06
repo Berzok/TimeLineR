@@ -1,40 +1,33 @@
 package vue;
 import javax.swing.JPanel;
-import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.table.DefaultTableModel;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.text.ParseException;
-
 import modele.Date;
 import modele.Evenement;
 import modele.ModeleTable;
 import modele.Timeline;
 
 
+@SuppressWarnings("serial")
 public class PanelTimeline extends JPanel
 	{
 	Controleur chControleur;
-	Timeline leAgenda;
+	Timeline laTimeline;
 	JTable timeLine;
 	JScrollPane leScroll;
 	public PanelTimeline(Controleur parControleur) throws ParseException
     	{
 		chControleur = parControleur;
-		chControleur.chPanelTimeline = this; 
+		chControleur.chPanelTimeline = this;
+		laTimeline = Controleur.chTimeline;
 		
 		
 		this.setLayout(new BorderLayout(0 , 0));
@@ -44,7 +37,7 @@ public class PanelTimeline extends JPanel
 		
 		timeLine = new JTable();
 		timeLine.setDefaultEditor(Object.class, null);
-		timeLine.setModel(new ModeleTable(chControleur.chTimeline));
+		timeLine.setModel(new ModeleTable(Controleur.chTimeline));
 		//    timeLine.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		timeLine.getTableHeader().setReorderingAllowed(false);
 		this.add(timeLine, BorderLayout.CENTER);
@@ -68,28 +61,35 @@ public class PanelTimeline extends JPanel
 	    	    int col = timeLine.columnAtPoint(e.getPoint());
 	    	    if (row >= 0 && col >= 0)
 	    	        {
-	    	    	timeLine.setValueAt(row + "" + col, row, col);
-	    	        System.out.println("Ligne: " + row);
-	    	        System.out.println("Colonne: " + col);
+	    			System.out.println("Yay: ");
+	    			PanelFormulaire formulaire;
+					try
+						{
+						formulaire = new PanelFormulaire(chControleur);
+						formulaire.setVisible(true);
+						}
+					catch (ParseException e1)
+						{
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+						}
+	    	    	laTimeline.ajout(3, new Evenement(new Date(), "Oui", "Bonjour bonjour", 5 + (int)(Math.random() * ((3) + 1))));
+	    	    	laTimeline.afficherContenu();
+	    	    	timeLine.setValueAt(col + "" + row, row, col);
+	    			if(timeLine.getColumnCount() < laTimeline.getSize() || timeLine.getRowCount() < laTimeline.getMaxPoidsEvent())
+	    				{
+	    				timeLine.setModel(new ModeleTable(Controleur.chTimeline));
+	    				}
+	    			timeLine.revalidate();
+	    			timeLine.repaint();
 	    	        }
 	    		}
 	    	});
 	    
-	    this.actualiserTimeline(timeLine, chControleur.chTimeline);
-	    
 	    }
 	
-	public void actualiserTimeline(JTable timeLine, Timeline laTimeline)
+	public void actualiserTimeline()
 		{
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				
-				try {
-					timeLine.repaint();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		
 		}
 	}

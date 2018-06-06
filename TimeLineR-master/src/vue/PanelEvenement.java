@@ -2,9 +2,7 @@ package vue;
 import modele.*;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.TreeMap;
@@ -12,6 +10,7 @@ import java.util.TreeMap;
 import javax.swing.*;
 
 
+@SuppressWarnings("serial")
 public class PanelEvenement extends JPanel
 	{
 	Controleur chControleur;
@@ -52,9 +51,9 @@ public class PanelEvenement extends JPanel
 		{
 		Timeline laTimeline = new Timeline();
 		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(1, 1, 1900), "Nouvel an", "Début du XXème siècle", 0));
-		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(14, 6, 1934), "Date au pif", "14 juin de l'année 1943", 1));
-		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(31, 12, 1999), "Terezi", "Fin du XXème siècle", 1));
-		chControleur.chTimeline = laTimeline;
+		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(14, 6, 1956), "Date au pif", "14 juin de l'année 1956", 1));
+		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(31, 12, 1999), "Réveillon", "Fin du XXème siècle", 1));
+		Controleur.chTimeline = laTimeline;
 		return laTimeline;
 		}
 	

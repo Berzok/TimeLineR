@@ -3,6 +3,8 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.ParseException;
 
@@ -60,9 +62,15 @@ public class FenetreVaginalementMotocultée extends JFrame {
 		this.add(panelNord, BorderLayout.NORTH);
 		this.add(panelFrise, BorderLayout.SOUTH);
 		
+//		ActionListener menuListener(ActionEvent event) {
+//			
+//		}
+		
  		this.add(panelFrise, BorderLayout.SOUTH);
  		this.menuTimeline.add(timelineTest1);
 		this.menuTimeline.add(timelineTest2);
+//		timelineTest1.addActionListener(actionListener);
+//		timelineTest2.addActionListener(actionListener);
 		this.menuAdd.add(addTimeline);
 		this.menuAdd.add(addEvent);
 		this.menuBar.add(menuTimeline);
