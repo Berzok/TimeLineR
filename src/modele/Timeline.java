@@ -13,8 +13,8 @@ import javax.swing.event.TreeSelectionEvent;
 
 
 public class Timeline implements Serializable, Comparable<Evenement> {
-	private TreeSet<Evenement> arbreEvts ;
-	private HashMap<Integer, Evenement> mapTimeline ;
+	private TreeSet<Evenement> arbreEvts;
+	private HashMap<Integer, Evenement> mapTimeline;
 	
 	// Question 1, 5
 	public Timeline() {
@@ -33,6 +33,14 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		mapTimeline.put(key, parEvt);
 	}
 	
+	public Evenement getEvenement(Integer key){
+		return mapTimeline.get(key);
+	}
+	
+	public Integer getSize(){
+		return this.mapTimeline.size();
+	}
+	
 //	// Question 2
 //	public int compareTo( int key , Timeline timeline) {
 //		for(int i ; )
@@ -46,7 +54,7 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		for(int i = 0 ; i < timeline.mapTimeline.size() ; i++)
 			if(timeline.mapTimeline.get(key).getChDate() == timeline.mapTimeline.get(i).getChDate()) {
 				if(timeline.mapTimeline.get(key).getPoids() == timeline.mapTimeline.get(i).getPoids()) {
-					Evenement nEvt = new Evenement(timeline.mapTimeline.get(key).getChDate(), timeline.mapTimeline.get(key).getChNom(), timeline.mapTimeline.get(key).getPoids() - 1);
+					Evenement nEvt = new Evenement(timeline.mapTimeline.get(key).getChDate(), timeline.mapTimeline.get(key).getChNom(), timeline.mapTimeline.get(key).getChDesc(), timeline.mapTimeline.get(key).getPoids() - 1);
 					timeline.mapTimeline.put(key, nEvt);
 				}
 			}

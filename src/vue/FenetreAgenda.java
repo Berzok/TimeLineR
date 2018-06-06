@@ -48,7 +48,7 @@ public class FenetreAgenda extends JFrame {
 		setTitle("Chronologie");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setSize(750, 400);
+		setSize(750, 450);
 		this.setLayout(new GridLayout(2, 0));
 		PanelEvenement panelNord = new PanelEvenement();
 		PanelTimeline panelFrise = new PanelTimeline();

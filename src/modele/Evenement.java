@@ -9,12 +9,12 @@ public class Evenement{
 	private Integer chPoids;
 	private String chDesc;
 	
-	public Evenement(Date parDate, String parNom, int parPoids, String parDesc)
+	public Evenement(Date parDate, String parNom, String parDesc, Integer parPoids)
 		{
 		this.chDate = parDate;
 		this.chNom = parNom;
-		this.chPoids = parPoids;
 		this.chDesc = parDesc;
+		this.chPoids = parPoids;
 		
 		}//Constructeur
 	
@@ -29,6 +29,10 @@ public class Evenement{
 	public String getChNom(){
 		return this.chNom;
 	}//Accesseur Nom
+	
+	public String getChDesc(){
+		return this.chDesc;
+	}
 	
 	public Integer getChPoids(){
 		return this.chPoids;

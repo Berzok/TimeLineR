@@ -21,33 +21,30 @@ import modele.Timeline;
 
 
 public class PanelTimeline extends JPanel
-{
-Controleur chControleur;
-Timeline leAgenda;
-JTable timeLine;
-public PanelTimeline() throws ParseException
-    {
-    this.setLayout(new BorderLayout(0 , 0));
-    leAgenda = new Timeline();
-    leAgenda.ajout(1, new Evenement(new Date(5, 7, 1741), "Tourte", 1, "On mange une tourte"));
-    leAgenda.ajout(2, new Evenement(new Date(13, 4, 2009), "Terezi", 2, "Terezi devient aveugle"));
-    leAgenda.afficherContenu();
+	{
+	Controleur chControleur;
+	Timeline leAgenda;
+	JTable timeLine;
+	public PanelTimeline() throws ParseException
+    	{
+		this.setLayout(new BorderLayout(0 , 0));
+		
+		this.setForeground(new Color(0, 0, 0));
+		this.setBackground(getForeground());
+		
+		timeLine = new JTable();
+		timeLine.setDefaultEditor(Object.class, null);
+		timeLine.setModel(new ModeleTable());
+		//    timeLine.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		timeLine.getTableHeader().setReorderingAllowed(false);
+		this.add(timeLine, BorderLayout.CENTER);
+		timeLine.setRowHeight(50);
     
-    this.setForeground(new Color(0, 0, 0));
-    this.setBackground(getForeground());
-    
-    timeLine = new JTable();
-    timeLine.setModel(new ModeleTable());
-//    timeLine.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-    timeLine.getTableHeader().setReorderingAllowed(false);
-    this.add(timeLine, BorderLayout.CENTER);
-    timeLine.setRowHeight(50);
-    
-    JScrollPane leScroll = new JScrollPane(timeLine);
-    leScroll.setPreferredSize(new Dimension(745, 150));
-    leScroll.setSize(745, 15);
-    leScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-    leScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-    this.add(leScroll);
-    }
-}
+		JScrollPane leScroll = new JScrollPane(timeLine);
+	    leScroll.setPreferredSize(new Dimension(745, 150));
+	    leScroll.setSize(745, 15);
+	    leScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    leScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+	    this.add(leScroll);
+	    }
+	}
