@@ -61,17 +61,18 @@ public class PanelTimeline extends JPanel
 	    	    int col = timeLine.columnAtPoint(e.getPoint());
 	    	    if (row >= 0 && col >= 0)
 	    	        {
-	    			EventQueue.invokeLater(new Runnable() {
-	    				public void run() {
-	    					try {
-	    						System.out.println("Yay: ");
-	    						PanelFormulaire formulaire = new PanelFormulaire(chControleur);
-	    						formulaire.setVisible(true);
-	    					} catch (Exception e) {
-	    						e.printStackTrace();
-	    					}
-	    				}
-	    			});
+	    			System.out.println("Yay: ");
+	    			PanelFormulaire formulaire;
+					try
+						{
+						formulaire = new PanelFormulaire(chControleur);
+						formulaire.setVisible(true);
+						}
+					catch (ParseException e1)
+						{
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+						}
 	    	    	laTimeline.ajout(3, new Evenement(new Date(), "Oui", "Bonjour bonjour", 5 + (int)(Math.random() * ((3) + 1))));
 	    	    	laTimeline.afficherContenu();
 	    	    	timeLine.setValueAt(col + "" + row, row, col);
