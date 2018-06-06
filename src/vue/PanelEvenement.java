@@ -50,9 +50,9 @@ public class PanelEvenement extends JPanel
 	public Timeline creerTimelineTest()
 		{
 		Timeline laTimeline = new Timeline();
-		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(1, 1, 1900), "Nouvel an", "Début du XXème siècle", 0));
-		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(14, 6, 1956), "Date au pif", "14 juin de l'année 1956", 1));
-		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(31, 12, 1999), "Réveillon", "Fin du XXème siècle", 1));
+		laTimeline.ajout(laTimeline.getSize(), new Evenement("Nouvel an", new Date(1, 1, 1900), "Début du XXème siècle", 0));
+		laTimeline.ajout(laTimeline.getSize(), new Evenement("Date au pif", new Date(14, 6, 1956), "14 juin de l'année 1956", 1));
+		laTimeline.ajout(laTimeline.getSize(), new Evenement("Réveillon", new Date(31, 12, 1999), "Fin du XXème siècle", 1));
 		Controleur.chTimeline = laTimeline;
 		return laTimeline;
 		}

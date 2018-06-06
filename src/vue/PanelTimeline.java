@@ -6,7 +6,6 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
@@ -73,7 +72,7 @@ public class PanelTimeline extends JPanel
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 						}
-	    	    	laTimeline.ajout(3, new Evenement(new Date(), "Oui", "Bonjour bonjour", 5 + (int)(Math.random() * ((3) + 1))));
+	    	    	laTimeline.ajout(3, new Evenement("Oui", new Date(), "Bonjour bonjour", 5 + (int)(Math.random() * ((3) + 1))));
 	    	    	laTimeline.afficherContenu();
 	    	    	timeLine.setValueAt(col + "" + row, row, col);
 	    			if(timeLine.getColumnCount() < laTimeline.getSize() || timeLine.getRowCount() < laTimeline.getMaxPoidsEvent())

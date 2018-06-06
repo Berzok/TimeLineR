@@ -1,5 +1,6 @@
 package modele;
 
+@SuppressWarnings("serial")
 public class ExceptionDate extends Exception{
 	public ExceptionDate(String parMessage){
 		super(parMessage);

@@ -9,7 +9,7 @@ public class Evenement{
 	private Integer chPoids;
 	private String chDesc;
 	
-	public Evenement(Date parDate, String parNom, String parDesc, Integer parPoids)
+	public Evenement(String parNom, Date parDate, String parDesc, Integer parPoids)
 		{
 		this.chDate = parDate;
 		this.chNom = parNom;

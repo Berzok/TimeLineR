@@ -33,31 +33,14 @@ public class Controleur implements ActionListener
 		}
 	public void actionPerformed(ActionEvent parEvent)
 		{
-		if(parEvent.getSource().getClass().equals(chPanelTimeline))
+		if(parEvent.getSource().equals(chPanelFormulaire.lePanel.chValidation))
 			{
-			
+			System.out.println("trouvé");
 			}
-		}
-	
-	private void synchroTimelines()
-		{
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					for(int i=0; i<chTimeline.getSize(); i++)
-						{
-						
-						}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 		}
 	
 	
 	public void finaliserControleur(){
-		chPanelTimeline.enregistreEcouteur(this);
 		chPanelEvenement.enregistreEcouteur(this);
 		}
 	}
