@@ -97,10 +97,11 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		}
 
 	@Override
-	public int compareTo(Evenement o) {
+	public int compareTo(Evenement o)
+		{
 		// TODO Auto-generated method stub
 		return 0;
-	}
+		}
 	}
 
 

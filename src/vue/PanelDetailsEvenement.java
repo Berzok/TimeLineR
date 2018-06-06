@@ -32,21 +32,22 @@ public class PanelDetailsEvenement extends JPanel
 		JPanel lePanel = new JPanel();
 		JPanel lePanel2 = new JPanel();
 		
-		lePanel.setLayout(new BoxLayout(lePanel, BoxLayout.LINE_AXIS));
+		this.setLayout(new GridLayout(1, 0));
+		lePanel.setLayout(new GridLayout(0, 1));
 		lePanel2.setLayout(new BoxLayout(lePanel2, BoxLayout.PAGE_AXIS));
 		
 		
-		leTexte = new JTextArea("Lalala");
+		leTexte = new JTextArea(parEvt.getChDesc());
 		leTexte.setEditable(false);
 		leTitre = new JLabel(parEvt.getChNom());
 		laImage = new JLabel(new ImageIcon("images/blank.png"));
 		
-		lePanel.add(laImage);
-		lePanel2.add(leTitre, BorderLayout.NORTH);
-		lePanel2.add(leTexte);
 		
+		lePanel.add(leTitre);
+		lePanel.add(leTexte);
+		this.add(laImage);
 		this.add(lePanel);
-		this.add(lePanel2);
+		
 		
 		JPanel card0 = new JPanel();
 		

@@ -30,10 +30,10 @@ public class PanelEvenement extends JPanel
 		this.setBackground(getForeground());
 		
 		
-		laTimeline = new Timeline();
-		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(5, 7, 1741), "Tourte", "On mange une tourte", 0));
-		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(13, 4, 2009), "Terezi", "Terezi est pas aveugle", 1));
-
+		laTimeline = this.creerTimelineTest();
+		laTimeline.afficherContenu();
+		
+		
 		lePanelDetails = new PanelDetailsEvenement(laTimeline.getEvenement(0));
 		
 		chControleur.chPanelDetailsEvenement = lePanelDetails;
@@ -48,8 +48,16 @@ public class PanelEvenement extends JPanel
 		treeTon.put(parEvt, new PanelDetailsEvenement(parEvt));
 		}
 	
-	public void enregistreEcouteur(Controleur controleur) {
+	public Timeline creerTimelineTest()
+		{
+		Timeline laTimeline = new Timeline();
+		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(1, 1, 1900), "Nouvel an", "Début du XXème siècle", 0));
+		laTimeline.ajout(laTimeline.getSize(), new Evenement(new Date(31, 12, 1999), "Terezi", "Fin du XXème siècle", 1));
+		return laTimeline;
+		}
+	
+	public void enregistreEcouteur(Controleur controleur)
+		{
 		// TODO Auto-generated method stub
-		
-	}
+		}
 	}
