@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -23,11 +24,13 @@ import javax.swing.Box;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JButton;
 
 
 
-public class PanelFormulaire extends JPanel implements ActionListener
+@SuppressWarnings("serial")
+public class PanelFormulaire extends JDialog implements ActionListener
 	{
 	private static Evenement chEvenement;
 	private static JTextField chLieuEvent;
@@ -47,7 +50,9 @@ public class PanelFormulaire extends JPanel implements ActionListener
 	 */
 	public PanelFormulaire(Controleur parControleur) throws ParseException
 		{
-		setBackground(new Color(222, 184, 135));
+		this.setSize(400, 200);
+		setBackground(new Color(0, 0, 0));
+		setForeground(getBackground());
 		leControleur = parControleur;
 		Date today = new Date();
 		DateFormat dfl = DateFormat.getDateInstance(DateFormat.FULL);
