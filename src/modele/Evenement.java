@@ -1,9 +1,13 @@
 package modele;
 
+import java.io.Serializable;
+
 import javax.swing.JButton;
 
 
-public class Evenement{
+@SuppressWarnings("serial")
+public class Evenement implements Serializable
+	{
 	private Date chDate;
 	private String chNom;
 	private Integer chPoids;

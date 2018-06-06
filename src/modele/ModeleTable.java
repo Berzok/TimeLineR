@@ -34,15 +34,21 @@ public class ModeleTable extends DefaultTableModel
 			{
 			defautColonnes[i] = parTimeline.getEvenement(i).getChDate().getAnnee() + "";
 			}
-		ArrayList<String> valeur = new ArrayList<String>();
+		ArrayList<Integer> valeur = new ArrayList<Integer>();
+		ArrayList<String> valeur2 = new ArrayList<String>();
 		for(int i=0; i<defautColonnes.length; i++)
 			{
-			valeur.add(defautColonnes[i]);
+			valeur.add(Integer.parseInt(defautColonnes[i]));
 			}
 		System.out.println(valeur);
 		Collections.sort(valeur);
 		System.out.println(valeur);
-		String[] defautColonnes2 = valeur.toArray(new String[valeur.size()]);
+		
+		for (Integer i: valeur)
+			{
+		    valeur2.add(String.valueOf(i));
+			}
+		String[] defautColonnes2 = valeur2.toArray(new String[valeur2.size()]);
 		this.setColumnIdentifiers(defautColonnes2);
 		this.setColumnCount(defautColonnes.length);
 		this.setRowCount(parTimeline.getMaxPoidsEvent());

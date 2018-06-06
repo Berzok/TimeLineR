@@ -1,8 +1,11 @@
 package modele;
 import java.util.GregorianCalendar;
+import java.io.Serializable;
 import java.util.Calendar;
  
-public class Date implements Comparable <Date> {
+@SuppressWarnings("serial")
+public class Date implements Comparable <Date>, Serializable
+	{
 	private int jour;
 	private int mois;
 	private int annee;

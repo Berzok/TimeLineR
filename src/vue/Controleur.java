@@ -2,6 +2,7 @@ package vue;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import modele.*;
 
@@ -25,7 +26,7 @@ public class Controleur implements ActionListener
 			{
 			chTimeline.ajout(chPanelFormulaire.getEvenement());
 			chPanelFormulaire.execute_order_66();
-			chTimeline.afficherContenu();
+			LectureEcriture.ecriture(new File("save/saveload.ser"), chTimeline);//
 			}
 		}
 	
