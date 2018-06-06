@@ -1,5 +1,6 @@
 package vue;
 import modele.Evenement;
+import modele.LectureEcriture;
 import modele.ModeleTable;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -10,14 +11,21 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.text.ParseException;
-import modele.ModeleTable;
+import java.util.ArrayList;
 import modele.Timeline;
 
 
-@SuppressWarnings("serial")
+
 public class PanelTimeline extends JPanel
 	{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	ArrayList<Timeline> laSave = new ArrayList<Timeline>();
+	ArrayList<File> lesSaves = new ArrayList<File>();
 	Controleur chControleur;
 	Timeline laTimeline;
 	JTable timeLine;
@@ -82,9 +90,12 @@ public class PanelTimeline extends JPanel
 	    
 	    }
 	
-	public void actualiserTimeline(Evenement parEvt, Integer parCol, Integer parRow)
+	public void actualiserTimeline(Integer parSave)
 		{
-		timeLine.setValueAt(parEvt.getChNom(), parRow, parCol);
+		for(Integer i=0; i<parSave; i++)
+			{
+			lesSaves.add(new File("save/saveload"+i+".ser"));
+			}
 		timeLine.repaint();
 		}
 	}

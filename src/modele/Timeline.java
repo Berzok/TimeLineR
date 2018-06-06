@@ -2,12 +2,14 @@ package modele;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet ;
 
 
-@SuppressWarnings("serial")
 public class Timeline implements Serializable, Comparable<Evenement> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private HashMap<Integer, Evenement> mapTimeline;
 	
 	// Question 1, 5

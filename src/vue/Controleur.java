@@ -10,6 +10,7 @@ import modele.*;
 
 public class Controleur implements ActionListener
 	{
+	static Integer laSave = 0;
 	static Timeline chTimeline;
 	PanelDetailsEvenement chPanelDetailsEvenement;
 	PanelEvenement chPanelEvenement;
@@ -29,11 +30,14 @@ public class Controleur implements ActionListener
 			leEvent = chPanelFormulaire.getEvenement();
 			System.out.println(key);
 			chTimeline.ajout(key, leEvent);
-			chPanelTimeline.timeLine.setModel(new ModeleTable(Controleur.chTimeline));
+			if(leEvent.getChPoids()>chTimeline.getMaxPoidsEvent())
+				chPanelTimeline.timeLine.setModel(new ModeleTable(Controleur.chTimeline));
 			System.out.println("Colonne: " + chPanelFormulaire.getCol());
 			chPanelTimeline.timeLine.setValueAt(leEvent.getChNom(), chPanelFormulaire.getImportance()-1, chPanelFormulaire.getCol());
 			chPanelFormulaire.execute_order_66();
-			LectureEcriture.ecriture(new File("save/saveload.ser"), chTimeline);
+			LectureEcriture.ecriture(new File("save/saveload"+laSave+".ser"), chTimeline);
+			chPanelTimeline.actualiserTimeline(laSave);
+			laSave++;
 			}
 		}
 	
