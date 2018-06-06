@@ -44,7 +44,7 @@ public class PanelTimeline extends JPanel
 		
 		timeLine = new JTable();
 		timeLine.setDefaultEditor(Object.class, null);
-		timeLine.setModel(new ModeleTable());
+		timeLine.setModel(new ModeleTable(chControleur.chTimeline));
 		//    timeLine.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		timeLine.getTableHeader().setReorderingAllowed(false);
 		this.add(timeLine, BorderLayout.CENTER);

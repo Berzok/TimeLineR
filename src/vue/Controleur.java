@@ -14,7 +14,7 @@ import modele.*;
 
 public class Controleur implements ActionListener
 	{
-	Timeline chTimeline;
+	static Timeline chTimeline;
 	PanelDetailsEvenement chPanelDetailsEvenement;
 	PanelEvenement chPanelEvenement;
 	PanelFormulaire chPanelFormulaire;

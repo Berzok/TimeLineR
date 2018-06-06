@@ -7,9 +7,6 @@ public class ModeleTable extends DefaultTableModel
 	{
 	public ModeleTable(Timeline parTimeline)
 		{
-		if(parTimeline.equals(null))
-			new ModeleTable();
-		
 		this.finaliserTable(parTimeline);
 		}
 	public ModeleTable()
@@ -26,6 +23,13 @@ public class ModeleTable extends DefaultTableModel
 	
 	private void finaliserTable(Timeline parTimeline)
 		{
-		
+		String[] defautColonnes = new String[parTimeline.getSize()];
+		for(int i=0; i<defautColonnes.length; i++)
+			{
+			defautColonnes[i] = parTimeline.getEvenement(i).getChDate().getAnnee() + "";
+			}
+		this.setColumnIdentifiers(defautColonnes);
+		this.setColumnCount(defautColonnes.length);
+		this.setRowCount(4);
 		}
 	}
