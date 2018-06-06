@@ -15,6 +15,8 @@ public class Evenement implements Serializable
 	private String chNom;
 	private Integer chPoids;
 	private String chDesc;
+	private Integer chRow;
+	private Integer chCol;
 	
 	public Evenement(String parNom, Date parDate, String parDesc, Integer parPoids)
 		{
@@ -45,6 +47,14 @@ public class Evenement implements Serializable
 		return this.chPoids;
 	}//Accesseur Lieu
 	
+	public Integer getChRow(){
+		return this.chRow;
+	}
+	
+	public Integer getChCol(){
+		return this.chCol;
+	}
+	
 	public void setChDate(Date parDate){
 		this.chDate = parDate;
 	}
@@ -55,6 +65,14 @@ public class Evenement implements Serializable
 	
 	public void setChLieu(Integer parPoids){
 		this.chPoids = parPoids;
+	}
+	
+	public void setChRow(Integer parRow){
+		this.chRow = parRow;
+	}
+	
+	public void setChCol(Integer parCol){
+		this.chCol = parCol;
 	}
 	
 //	public static Evenement lireEvenement() throws ExceptionDate{

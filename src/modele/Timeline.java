@@ -37,6 +37,10 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		return mapTimeline.get(key);
 	}
 	
+	public HashMap<Integer, Evenement> getMap(){
+		return mapTimeline;
+	}
+	
 	public Integer getSize(){
 		return this.mapTimeline.size();
 	}

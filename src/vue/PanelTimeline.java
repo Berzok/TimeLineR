@@ -13,7 +13,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.text.ParseException;
-import java.util.ArrayList;
 import modele.Timeline;
 
 
@@ -24,8 +23,6 @@ public class PanelTimeline extends JPanel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	ArrayList<Timeline> laSave = new ArrayList<Timeline>();
-	ArrayList<File> lesSaves = new ArrayList<File>();
 	Controleur chControleur;
 	Timeline laTimeline;
 	JTable timeLine;
@@ -65,10 +62,8 @@ public class PanelTimeline extends JPanel
 	    	@Override
 	    	public void mouseClicked(MouseEvent e)
 	    		{
-	    		System.out.println("Il y a " + timeLine.getColumnCount() + " colonnes");
 	    		int row = timeLine.rowAtPoint(e.getPoint());
 	    	    int col = timeLine.columnAtPoint(e.getPoint());
-	    	    System.out.println("Il y a " + col + " colonnes");
 	    	    if (row >= 0 && col >= 0)
 	    	        {
 	    			PanelFormulaire formulaire;
@@ -92,10 +87,13 @@ public class PanelTimeline extends JPanel
 	
 	public void actualiserTimeline(Integer parSave)
 		{
-		for(Integer i=0; i<parSave; i++)
-			{
-			lesSaves.add(new File("save/saveload"+i+".ser"));
-			}
+		
+		
+//		for(Integer i=0; i<parSave; i++)
+//			{
+//			Evenement leEvent = (Evenement) LectureEcriture.lecture(new File("save/saveload"+i+".ser"));
+//			timeLine.setValueAt(leEvent, leEvent.getChRow(), leEvent.getChCol());
+//			}
 		timeLine.repaint();
 		}
 	}
