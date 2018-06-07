@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package vue;
 import modele.*;
 import javax.swing.JPanel;
@@ -24,25 +27,59 @@ import javax.swing.JButton;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PanelFormulaire.
+ */
 @SuppressWarnings("serial")
 public class PanelFormulaire extends JDialog implements ActionListener
 	{
+	
+	/** The le panel. */
 	public PanelFils lePanel;
+	
+	/** The le controleur. */
 	private Controleur leControleur;
+	
+	/** The ch evenement. */
 	private Evenement chEvenement;
+	
+	/** The ch annee. */
 	private Integer chAnnee;
+	
+	/** The ch col. */
 	private Integer chCol;
+	
+	/** The ch row. */
 	private Integer chRow;
 	
+	/**
+	 * The Class PanelFils.
+	 */
 	class PanelFils extends JPanel implements ActionListener
 		{
+		
+		/** The ch titre event. */
 		private JTextArea chTitreEvent;
+		
+		/** The ch image bouton. */
 		private JButton chImageBouton;
+		
+		/** The ch event image. */
 		private String chEventImage;
+		
+		/** The ch importance. */
 		private JComboBox<String> chImportance;
+		
+		/** The ch desc event. */
 		private JTextArea chDescEvent;
+		
+		/** The ch validation. */
 		public JButton chValidation = new JButton("Valider");
 		
+		/**
+		 * Instantiates a new panel fils.
+		 */
 		public PanelFils()
 			{
 			
@@ -102,6 +139,9 @@ public class PanelFormulaire extends JDialog implements ActionListener
 			}
 		
 		
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
 		public void actionPerformed(ActionEvent parEvent)
 			{
 			if(parEvent.getSource().equals(chImageBouton))
@@ -129,7 +169,12 @@ public class PanelFormulaire extends JDialog implements ActionListener
 	
 	/**
 	 * Create the panel.
-	 * @throws ParseException 
+	 *
+	 * @param parControleur the par controleur
+	 * @param parHeader the par header
+	 * @param parCol the par col
+	 * @param parRow the par row
+	 * @throws ParseException the parse exception
 	 */
 	public PanelFormulaire(Controleur parControleur, String[] parHeader, Integer parCol, Integer parRow) throws ParseException
 		{
@@ -157,6 +202,11 @@ public class PanelFormulaire extends JDialog implements ActionListener
 	
 	
 	
+	/**
+	 * Gets the evenement.
+	 *
+	 * @return the evenement
+	 */
 	public Evenement getEvenement()
 		{
 		String titre = getTitre();
@@ -168,33 +218,81 @@ public class PanelFormulaire extends JDialog implements ActionListener
 		return chEvenement;
 		}
 	
+	/**
+	 * Gets the row.
+	 *
+	 * @return the row
+	 */
 	public Integer getRow()
 		{
 		return chRow;
 		}
+	
+	/**
+	 * Gets the col.
+	 *
+	 * @return the col
+	 */
 	public Integer getCol(){
 		return chCol;
 	}
+	
+	/**
+	 * Gets the titre.
+	 *
+	 * @return the titre
+	 */
 	public String getTitre(){
 		return this.lePanel.chTitreEvent.getText();
 		}
+	
+	/**
+	 * Gets the date.
+	 *
+	 * @return the date
+	 */
 	public Date getDate(){
 		return new Date(1, 1, chAnnee);
 //		return new Date(1, 1, Integer.parseInt(this.lePanel.chDateEvent.getText()));
 		}
+	
+	/**
+	 * Gets the desc.
+	 *
+	 * @return the desc
+	 */
 	public String getDesc(){
 		return this.lePanel.chDescEvent.getText();
 		}
+	
+	/**
+	 * Gets the importance.
+	 *
+	 * @return the importance
+	 */
 	public Integer getImportance(){
 		return this.lePanel.chImportance.getSelectedIndex()+1;
 		}
+	
+	/**
+	 * Gets the image U rl.
+	 *
+	 * @return the image U rl
+	 */
 	public String getImageURl(){
 		return this.lePanel.chEventImage;
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	public void actionPerformed(ActionEvent parEvent){
 		}
+	
+	/**
+	 * Execute order 66.
+	 */
 	public void execute_order_66(){
 		this.dispose();
 	}

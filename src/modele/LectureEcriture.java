@@ -8,8 +8,19 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.channels.FileChannel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LectureEcriture.
+ */
 public class LectureEcriture
 	{
+	
+	/**
+	 * Lecture.
+	 *
+	 * @param parFichier the par fichier
+	 * @return the object
+	 */
 	public static Object lecture (File parFichier)
 		{
 		ObjectInputStream flux ;
@@ -37,6 +48,12 @@ public class LectureEcriture
 		}  // lecture ()
 	
 	
+		/**
+		 * Ecriture.
+		 *
+		 * @param parFichier the par fichier
+		 * @param parObjet the par objet
+		 */
 		public static void ecriture (File parFichier, Object parObjet)
 			{
 			ObjectOutputStream flux = null;
@@ -55,6 +72,13 @@ public class LectureEcriture
 				}
 			} //  ecriture ()
 		
+		/**
+		 * Copier fichier.
+		 *
+		 * @param source the source
+		 * @param dest the dest
+		 * @throws IOException Signals that an I/O exception has occurred.
+		 */
 		public static void copierFichier(File source, File dest) throws IOException {
 		    FileChannel sourceChannel = null;
 		    FileChannel destChannel = null;

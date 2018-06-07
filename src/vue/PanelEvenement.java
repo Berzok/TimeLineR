@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package vue;
 import modele.*;
 
@@ -10,15 +13,39 @@ import java.util.TreeMap;
 import javax.swing.*;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PanelEvenement.
+ */
 @SuppressWarnings("serial")
 public class PanelEvenement extends JPanel
 	{
+	
+	/** The ch controleur. */
 	Controleur chControleur;
+	
+	/** The la timeline. */
 	Timeline laTimeline;
+	
+	/** The tree ton. */
 	TreeMap<Evenement, PanelDetailsEvenement> treeTon = new TreeMap<>();
+	
+	/** The le panel details. */
 	PanelDetailsEvenement lePanelDetails;
+	
+	/** The bouton previous. */
 	JButton boutonPrevious = new JButton("<<");
+	
+	/** The bouton next. */
 	JButton boutonNext = new JButton(">>");
+	
+	/**
+	 * Instantiates a new panel evenement.
+	 *
+	 * @param parControleur the par controleur
+	 * @throws ParseException the parse exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public PanelEvenement(Controleur parControleur) throws ParseException, IOException
 		{
 		chControleur = parControleur;
@@ -42,11 +69,22 @@ public class PanelEvenement extends JPanel
 		this.add(boutonNext, BorderLayout.EAST);
 		}
 	
+	/**
+	 * Creates the panel.
+	 *
+	 * @param parEvt the par evt
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void createPanel(Evenement parEvt) throws IOException
 		{
 		treeTon.put(parEvt, new PanelDetailsEvenement(parEvt));
 		}
 	
+	/**
+	 * Creer timeline test.
+	 *
+	 * @return the timeline
+	 */
 	public Timeline creerTimelineTest()
 		{
 		Timeline laTimeline = new Timeline();
@@ -57,6 +95,11 @@ public class PanelEvenement extends JPanel
 		return laTimeline;
 		}
 	
+	/**
+	 * Enregistre ecouteur.
+	 *
+	 * @param controleur the controleur
+	 */
 	public void enregistreEcouteur(Controleur controleur)
 		{
 		// TODO Auto-generated method stub

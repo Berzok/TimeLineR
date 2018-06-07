@@ -3,14 +3,29 @@ import java.util.GregorianCalendar;
 import java.io.Serializable;
 import java.util.Calendar;
  
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Date.
+ */
 @SuppressWarnings("serial")
 public class Date implements Comparable <Date>, Serializable
 	{
+	
+	/** The jour. */
 	private int jour;
+	
+	/** The mois. */
 	private int mois;
+	
+	/** The annee. */
 	private int annee;
+	
+	/** The jour semaine. */
 	private int jourSemaine ;  
    
+	/**
+	 * Instantiates a new date.
+	 */
 	public Date ()   { 
 		GregorianCalendar dateAuj = new GregorianCalendar ();
 		annee = dateAuj.get (Calendar.YEAR);
@@ -19,6 +34,13 @@ public class Date implements Comparable <Date>, Serializable
 		jourSemaine = dateAuj.get (Calendar.DAY_OF_WEEK);
 	}
   
+  /**
+   * Instantiates a new date.
+   *
+   * @param parJour the par jour
+   * @param parMois the par mois
+   * @param parAnnee the par annee
+   */
   public Date (int parJour, int parMois, int parAnnee)   {   
 	jour = parJour;
 	mois = parMois;
@@ -30,7 +52,10 @@ public class Date implements Comparable <Date>, Serializable
   /**
    * retourne 0 si this et parDate sont gales, 
    * -1 si this prde parDate,
-   *  1 si parDate prde this
+   *  1 si parDate prde this.
+   *
+   * @param parDate the par date
+   * @return the int
    */
   public int compareTo (Date parDate) {
     if (annee < parDate.annee)
@@ -50,6 +75,11 @@ public class Date implements Comparable <Date>, Serializable
 	return 0;	
   }
  
+  /**
+   * Date du lendemain.
+   *
+   * @return the date
+   */
   public Date dateDuLendemain ()   {	
     if (jour < dernierJourDuMois(mois,annee))
 		     return  new Date (jour+1,mois,annee);
@@ -58,6 +88,11 @@ public class Date implements Comparable <Date>, Serializable
 			 else return new Date (1,1,annee+1);	
   }  
   
+  /**
+   * Date de la veille.
+   *
+   * @return the date
+   */
   public Date dateDeLaVeille () {    
 	if (jour > 1)
 			return  new Date (jour-1,mois,annee);
@@ -66,6 +101,13 @@ public class Date implements Comparable <Date>, Serializable
 		 else return  new Date (31,12,annee-1);
   }	 
   
+  /**
+   * Dernier jour du mois.
+   *
+   * @param parMois the par mois
+   * @param parAnnee the par annee
+   * @return the int
+   */
   public static int dernierJourDuMois (int parMois, int parAnnee) {
 		switch (parMois) {
 			 case 2 : if (estBissextile (parAnnee))  return 29 ; else return 28 ;  
@@ -74,10 +116,19 @@ public class Date implements Comparable <Date>, Serializable
 			}  // switch
 	  } 
 	  
+  /**
+   * Est bissextile.
+   *
+   * @param parAnnee the par annee
+   * @return true, if successful
+   */
   private static boolean estBissextile(int parAnnee) {
 			return parAnnee % 4 == 0 && (parAnnee % 100 != 0 || parAnnee % 400 == 0);
 	  }
     
+  /* (non-Javadoc)
+   * @see java.lang.Object#toString()
+   */
   public String toString () {
     String chaine = new String();
     switch (jourSemaine) {
@@ -108,25 +159,46 @@ public class Date implements Comparable <Date>, Serializable
   }  
 
 
+/**
+ * Gets the annee.
+ *
+ * @return the annee
+ */
 public int getAnnee() { 
 	return annee;
 }
 
+/**
+ * Gets the jour.
+ *
+ * @return the jour
+ */
 public int getJour() { 
 	return jour;
 }
 
+/**
+ * Gets the mois.
+ *
+ * @return the mois
+ */
 public int getMois() { 
 	return mois;
 }
 
+/**
+ * Gets the jour semaine.
+ *
+ * @return the jour semaine
+ */
 public int getJourSemaine () {
 	return jourSemaine;
 }
 
 /**
- * retourne la date du premier jour de la semaine contenant this 
- * @return
+ * retourne la date du premier jour de la semaine contenant this .
+ *
+ * @return the date
  */
 public Date datePremierJourSemaine () {
 	Date datePrem = this;	 
@@ -136,6 +208,11 @@ public Date datePremierJourSemaine () {
 	return datePrem;
 }
 
+/**
+ * Checks if is today.
+ *
+ * @return true, if is today
+ */
 public boolean isToday() {
 	return new Date().compareTo(this) == 0;
 }

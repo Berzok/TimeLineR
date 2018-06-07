@@ -1,12 +1,16 @@
+/*
+ * 
+ */
 package vue;
 import modele.ModeleTable;
+import modele.CellRenderer;
+import modele.Timeline;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -16,22 +20,43 @@ import java.awt.event.MouseEvent;
 import java.text.ParseException;
 import java.util.HashMap;
 
-import modele.Timeline;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PanelTimeline.
+ */
 public class PanelTimeline extends JPanel
 	{
-	/**
-	 * 
-	 */
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The ch controleur. */
 	Controleur chControleur;
+	
+	/** The la timeline. */
 	Timeline laTimeline;
+	
+	/** The time line. */
 	JTable timeLine;
+	
+	/** The le scroll. */
 	JScrollPane leScroll;
+	
+	/** The ch header. */
 	String[] chHeader;
+	
+	/** The used coords. */
 	HashMap<Integer, Integer> usedCoords = new HashMap<Integer, Integer>();
+	
+	/**
+	 * Instantiates a new panel timeline.
+	 *
+	 * @param parControleur the par controleur
+	 * @throws ParseException the parse exception
+	 */
 	public PanelTimeline(Controleur parControleur) throws ParseException
     	{
 		chControleur = parControleur;
@@ -51,6 +76,12 @@ public class PanelTimeline extends JPanel
 		timeLine.getTableHeader().setReorderingAllowed(false);
 		this.add(timeLine, BorderLayout.CENTER);
 		timeLine.setRowHeight(50);
+		for(int i=0; i<3; i++)
+			{
+			timeLine.getColumnModel().getColumn(i).setCellRenderer(new CellRenderer());			
+			}
+		
+		
 		
 		leScroll = new JScrollPane(timeLine);
 	    leScroll.setPreferredSize(new Dimension(745, 150));
@@ -89,6 +120,11 @@ public class PanelTimeline extends JPanel
 	    
 	    }
 	
+	/**
+	 * Actualiser timeline.
+	 *
+	 * @param parSave the par save
+	 */
 	public void actualiserTimeline(Integer parSave)
 		{
 		

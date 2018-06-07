@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package vue;
 
 import java.awt.BorderLayout;
@@ -15,20 +18,41 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FenetreMere.
+ */
 @SuppressWarnings("serial")
 public class FenetreMere extends JFrame implements ActionListener{
 	
+	/** The le controleur. */
 	public Controleur leControleur;
+	
+	/** The menu bar. */
 	public JMenuBar menuBar = new JMenuBar();
+	
+	/** The menu timeline. */
 	public JMenu menuTimeline = new JMenu("Timelines");
+	
+	/** The menu add. */
 	public JMenu menuAdd = new JMenu("Ajouts");
+	
+	/** The add timeline. */
 	public JMenuItem addTimeline = new JMenuItem("Ajouter une Timeline");
+	
+	/** The add event. */
 	public JMenuItem addEvent = new JMenuItem("Ajouter un event à une Timeline");
+	
+	/** The timeline test 1. */
 	public JMenuItem timelineTest1 = new JMenuItem("Timeline Test1");
+	
+	/** The timeline test 2. */
 	public JMenuItem timelineTest2 = new JMenuItem("Timeline Test2");
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -45,8 +69,9 @@ public class FenetreMere extends JFrame implements ActionListener{
 
 	/**
 	 * Create the frame.
-	 * @throws ParseException 
-	 * @throws IOException 
+	 *
+	 * @throws ParseException the parse exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public FenetreMere() throws ParseException, IOException {
 		setTitle("Chronologie");
@@ -81,6 +106,9 @@ public class FenetreMere extends JFrame implements ActionListener{
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

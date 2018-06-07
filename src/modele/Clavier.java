@@ -3,8 +3,17 @@ package modele;
 
 import java.io.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Clavier.
+ */
 public class Clavier {
 	
+  /**
+   * Lire string.
+   *
+   * @return the string
+   */
   public static String lireString (){
     String ligneLue = new String();
     try {
@@ -18,6 +27,11 @@ public class Clavier {
 	return ligneLue;
   }  // lireString
 
+/**
+ * Lire int.
+ *
+ * @return the int
+ */
 public static int lireInt () {
 	int intLu = 0;
 	try { 
@@ -31,6 +45,11 @@ public static int lireInt () {
 	return intLu;
 }  // lireInt
 
+/**
+ * Lire float.
+ *
+ * @return the float
+ */
 public static float lireFloat () {
     float floatLu = 0;
 	try {

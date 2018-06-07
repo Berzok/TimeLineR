@@ -6,15 +6,30 @@ import java.util.Collections;
 import javax.swing.table.DefaultTableModel;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ModeleTable.
+ */
 @SuppressWarnings("serial")
 public class ModeleTable extends DefaultTableModel
 	{
+	
+	/** The defaut colonnes. */
 	static String[] defautColonnes;
 	
+	/**
+	 * Instantiates a new modele table.
+	 *
+	 * @param parTimeline the par timeline
+	 */
 	public ModeleTable(Timeline parTimeline)
 		{
 		this.finaliserTable(parTimeline);
 		}
+	
+	/**
+	 * Instantiates a new modele table.
+	 */
 	public ModeleTable()
 		{
 		String[] defautColonnes = {"1", "2", "3", "4", "5", "6", "7"};
@@ -27,6 +42,11 @@ public class ModeleTable extends DefaultTableModel
 		
 		}
 	
+	/**
+	 * Finaliser table.
+	 *
+	 * @param parTimeline the par timeline
+	 */
 	private void finaliserTable(Timeline parTimeline)
 		{
 		defautColonnes = new String[parTimeline.getSize()];
@@ -53,10 +73,18 @@ public class ModeleTable extends DefaultTableModel
 		}
 	
 	
+	/* (non-Javadoc)
+	 * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
+	 */
 	public Class<?> getColumnClass (int parIndex){
 		return String.class;
 		}
 	
+	/**
+	 * Gets the table header.
+	 *
+	 * @return the table header
+	 */
 	public static String[] getTableHeader(){
 		return defautColonnes;
 		}

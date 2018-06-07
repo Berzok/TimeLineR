@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package vue;
 
 import java.awt.GridLayout;
@@ -11,13 +14,29 @@ import javax.swing.JTextArea;
 import modele.Evenement;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PanelDetailsEvenement.
+ */
 @SuppressWarnings("serial")
 public class PanelDetailsEvenement extends JPanel
 	{
+	
+	/** The le texte. */
 	private JTextArea leTexte;
+	
+	/** The le titre. */
 	private JLabel leTitre;
+	
+	/** The la image. */
 	private JLabel laImage;
 	
+	/**
+	 * Instantiates a new panel details evenement.
+	 *
+	 * @param parEvt the par evt
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public PanelDetailsEvenement(Evenement parEvt) throws IOException
 		{
 		JPanel lePanel = new JPanel();

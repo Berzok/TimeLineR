@@ -5,18 +5,31 @@ import java.util.List;
 import java.util.TreeSet ;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Timeline.
+ */
 public class Timeline implements Serializable, Comparable<Evenement> {
-	/**
-	 * 
-	 */
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The map timeline. */
 	private HashMap<Integer, Evenement> mapTimeline;
 	
+	/**
+	 * Instantiates a new timeline.
+	 */
 	// Question 1, 5
 	public Timeline() {
 		mapTimeline = new HashMap<Integer, Evenement>();
 	}
 	
+	/**
+	 * Instantiates a new timeline.
+	 *
+	 * @param TreesetEvt the treeset evt
+	 */
 	@SuppressWarnings("unchecked")
 	public Timeline(TreeSet<Evenement> TreesetEvt) {
 		for(int i = 0 ; i < TreesetEvt.size() ; i ++) {
@@ -24,23 +37,50 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		}
 	}
 	
+	/**
+	 * Ajout.
+	 *
+	 * @param parEvt the par evt
+	 */
 	// Question 1, 5
 	public void ajout(Evenement parEvt) {
 		mapTimeline.put(mapTimeline.size(), parEvt);
 	}
 	
+	/**
+	 * Ajout.
+	 *
+	 * @param key the key
+	 * @param parEvt the par evt
+	 */
 	public void ajout(Integer key, Evenement parEvt){
 		mapTimeline.put(key, parEvt);
 	}
 	
+	/**
+	 * Gets the evenement.
+	 *
+	 * @param key the key
+	 * @return the evenement
+	 */
 	public Evenement getEvenement(Integer key){
 		return mapTimeline.get(key);
 	}
 	
+	/**
+	 * Gets the map.
+	 *
+	 * @return the map
+	 */
 	public HashMap<Integer, Evenement> getMap(){
 		return mapTimeline;
 	}
 	
+	/**
+	 * Gets the size.
+	 *
+	 * @return the size
+	 */
 	public Integer getSize(){
 		return this.mapTimeline.size();
 	}
@@ -48,6 +88,12 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	
 	
 	
+	/**
+	 * Gets the key.
+	 *
+	 * @param parEvt the par evt
+	 * @return the key
+	 */
 	public Integer getKey(Evenement parEvt)
 		{
 		for(Integer key : mapTimeline.keySet())
@@ -61,6 +107,11 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		}
 	
 	
+	/**
+	 * Gets the max poids event.
+	 *
+	 * @return the max poids event
+	 */
 	public Integer getMaxPoidsEvent(){
 		Integer nombre = 0;
 		Evenement[] valeur = mapTimeline.values().toArray(new Evenement[mapTimeline.size()]);
@@ -85,7 +136,13 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 //				timeline2.put(key, nEvt);
 //	}
 	
-	// Question 2
+	/**
+ * Verifie poids.
+ *
+ * @param key the key
+ * @param timeline the timeline
+ */
+// Question 2
 	public void verifiePoids( int key , Timeline timeline) {
 		for(int i = 0 ; i < timeline.mapTimeline.size() ; i++)
 			if(timeline.mapTimeline.get(key).getChDate() == timeline.mapTimeline.get(i).getChDate()) {
@@ -107,7 +164,10 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 //		return iter;
 //	}
 	
-    public void afficherContenu()
+    /**
+	 * Afficher contenu.
+	 */
+	public void afficherContenu()
     	{
     	for(int i=1; i<this.mapTimeline.size(); i++)
     		{
@@ -125,12 +185,21 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 //		return nbEvts ;
 //	}
 	
-	public String toString(int parIndice)
+	/**
+ * To string.
+ *
+ * @param parIndice the par indice
+ * @return the string
+ */
+public String toString(int parIndice)
 		{
 		String leString =  "Le "+ this.mapTimeline.get(parIndice).getChDate() + ", " + this.mapTimeline.get(parIndice).getChNom() + " à " + this.mapTimeline.get(parIndice).getChPoids();
 		return leString;
 		}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	@Override
 	public int compareTo(Evenement o)
 		{

@@ -2,9 +2,22 @@ package modele;
 import java.util.TreeSet;
 import java.util.Collection;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CalendrierDuMois.
+ */
 public class CalendrierDuMois
 	{
+	
+	/** The dates. */
 	private Collection <Date> dates;
+	
+	/**
+	 * Instantiates a new calendrier du mois.
+	 *
+	 * @param mois the mois
+	 * @param annee the annee
+	 */
 	public CalendrierDuMois ( int mois, int annee)
 		{
 		dates = new TreeSet <Date> ();
@@ -29,6 +42,11 @@ public class CalendrierDuMois
 			}
 		}
   
+	/**
+	 * Gets the dates.
+	 *
+	 * @return the dates
+	 */
 	public Collection <Date> getDates()
 		{
 		return dates;
