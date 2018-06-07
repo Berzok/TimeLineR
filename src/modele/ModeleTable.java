@@ -51,7 +51,7 @@ public class ModeleTable extends DefaultTableModel
 		String[] defautColonnes = valeur2.toArray(new String[valeur2.size()]);
 		this.setColumnIdentifiers(defautColonnes);
 		this.setColumnCount(defautColonnes.length);
-		this.setRowCount(parTimeline.getMaxPoidsEvent());
+		this.setRowCount(4);
 		System.out.println(defautColonnes.length);
 		}
 	

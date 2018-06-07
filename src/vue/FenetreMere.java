@@ -3,8 +3,11 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -13,7 +16,7 @@ import javax.swing.JMenuItem;
 
 
 @SuppressWarnings("serial")
-public class FenetreMere extends JFrame {
+public class FenetreMere extends JFrame implements ActionListener{
 	
 	public Controleur leControleur;
 	public JMenuBar menuBar = new JMenuBar();
@@ -52,10 +55,16 @@ public class FenetreMere extends JFrame {
 		setSize(750, 450);
 		this.setLayout(new GridLayout(2, 0));
 		
-		Controleur leControleur = new Controleur();
+		Controleur leControleur = new Controleur(this);
 		
 		PanelEvenement panelNord = new PanelEvenement(leControleur);
 		PanelTimeline panelFrise = new PanelTimeline(leControleur);
+		
+		this.addTimeline.addActionListener(leControleur);
+		this.addEvent.addActionListener(leControleur);
+		this.timelineTest1.addActionListener(leControleur);
+		this.timelineTest2.addActionListener(leControleur);
+		
 		
 		this.add(panelNord, BorderLayout.NORTH);
 		this.add(panelFrise, BorderLayout.SOUTH);
@@ -71,4 +80,11 @@ public class FenetreMere extends JFrame {
 		this.setVisible(true);
 		
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

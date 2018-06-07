@@ -1,6 +1,4 @@
 package vue;
-import modele.Evenement;
-import modele.LectureEcriture;
 import modele.ModeleTable;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -11,8 +9,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.text.ParseException;
+import java.util.HashMap;
+
 import modele.Timeline;
 
 
@@ -28,6 +27,7 @@ public class PanelTimeline extends JPanel
 	JTable timeLine;
 	JScrollPane leScroll;
 	String[] chHeader;
+	HashMap<Integer, Integer> usedCoords = new HashMap<Integer, Integer>();
 	public PanelTimeline(Controleur parControleur) throws ParseException
     	{
 		chControleur = parControleur;

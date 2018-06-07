@@ -48,6 +48,7 @@ public class PanelFormulaire extends JDialog implements ActionListener
 			titreEvent.setFont(new Font("Tahoma", Font.BOLD, 13));
 			add(titreEvent);
 			chTitreEvent = new JTextArea();
+			chTitreEvent.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 			chTitreEvent.setColumns(70);
 			add(chTitreEvent);
 			
@@ -64,6 +65,7 @@ public class PanelFormulaire extends JDialog implements ActionListener
 			labelImportance.setFont(new Font("Tahoma", Font.BOLD, 12));
 			String[] laListe = {"1", "2", "3", "4", "5"};
 			chImportance = new JComboBox<String>(laListe);
+			chImportance.setSelectedIndex(chRow);
 			add(labelImportance);
 			add(chImportance);
 			
@@ -75,6 +77,7 @@ public class PanelFormulaire extends JDialog implements ActionListener
 			chDescEvent = new JTextArea("");
 			chDescEvent.setRows(10);
 			chDescEvent.setColumns(70);
+			chDescEvent.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 			add(chDescEvent);
 			
 			
@@ -104,6 +107,7 @@ public class PanelFormulaire extends JDialog implements ActionListener
 		this.setModal(true);
 		this.setTitle("Ajouter un évènement");
 		this.setSize(400, 400);
+		setBounds(250, 250, 450, 300);
 		setBackground(new Color(0, 0, 0));
 		setForeground(getBackground());
 		leControleur = parControleur;
