@@ -191,11 +191,45 @@ public class Timeline implements Serializable, Comparable<Evenement> {
  * @param parIndice the par indice
  * @return the string
  */
-public String toString(int parIndice)
+	public String toString(int parIndice)
 		{
 		String leString =  "Le "+ this.mapTimeline.get(parIndice).getChDate() + ", " + this.mapTimeline.get(parIndice).getChNom() + " à " + this.mapTimeline.get(parIndice).getChPoids();
 		return leString;
 		}
+	
+	public static Timeline generateTimeline(Integer n)
+		{
+		Timeline nouvelleTimeline = new Timeline();
+		Evenement eventUn = new Evenement("Naissance", new Date(7, 1, 1964), "Jour de la naissance de Nicolas Cage, un dieu divin !", 1);
+		eventUn.setImageURL("images/Naissance.png");
+		eventUn.setChCol(0);
+		
+		Evenement eventDeux = new Evenement("Fashion", new Date(7, 1, 1964), "Nicolas Cage se lance à l'attaque du monde de la mode !", 2);
+		eventDeux.setImageURL("images/Fashion.jpg");
+		eventDeux.setChCol(1);
+		
+		
+		Evenement eventTrois = new Evenement("Capillarité", new Date(7, 1, 1964), "Nicolas Cage devient à moitié aigle et se prépare à prendre son envol !", 1);
+		eventTrois.setImageURL("images/cheveux.jpg");
+		eventTrois.setChCol(2);
+		
+		
+		Evenement eventQuatre = new Evenement("Jedi", new Date(7, 1, 1964), "Après avoir enfin maîtrisé la Force, Nicolas Cage devint le plus grand des chevaliers Jedi", 2);
+		eventQuatre.setImageURL("images/jedi.png");
+		eventQuatre.setChCol(3);
+		
+		
+		
+		nouvelleTimeline.ajout(eventUn);
+		nouvelleTimeline.ajout(eventDeux);
+		nouvelleTimeline.ajout(eventTrois);
+		nouvelleTimeline.ajout(eventQuatre);
+		
+		
+		return nouvelleTimeline; 
+		}
+	
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)

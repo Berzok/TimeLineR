@@ -3,6 +3,7 @@ package modele;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -17,6 +18,13 @@ public class ModeleTable extends DefaultTableModel
 	/** The defaut colonnes. */
 	static String[] defautColonnes;
 	
+	
+	public ModeleTable(Timeline parTimeline, Boolean beTrueOrNotToBeTrue)
+		{
+		this.finaliserTable(parTimeline);
+		}
+
+
 	/**
 	 * Instantiates a new modele table.
 	 *

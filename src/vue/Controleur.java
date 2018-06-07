@@ -11,6 +11,7 @@ import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 
 import modele.*;
 
@@ -58,50 +59,74 @@ public class Controleur implements ActionListener
 	 */
 	public void actionPerformed(ActionEvent parEvent)
 		{
-		Object laSource = parEvent.getSource();
 		
 		/**
 		 * Lorsque l'utilisateur clique sur le bouton de validation du formulaire d'ajout, on créé l'évènement
 		 * correspondant en fonction des données saisies, puis on l'ajoute à la Timeline actuelle, et on l'ajoute
 		 * sur la frise.
 		 */
-		if(laSource.equals(chPanelFormulaire.lePanel.chValidation))
+		try
 			{
-			Evenement leEvent;
-			Integer key = chTimeline.getKey(chPanelFormulaire.getEvenement());
-			leEvent = chPanelFormulaire.getEvenement();
-			leEvent.setChRow(leEvent.getChPoids());
-			leEvent.setChCol(chPanelFormulaire.getCol());
-			chTimeline.ajout(key, leEvent);
-			try {
-				LectureEcriture.copierFichier(new File(leEvent.getChImageURL()), new File("images/"+leEvent.getChNom()+".png"));
-				leEvent.setImageURL("images/"+leEvent.getChNom()+".png");
-				}
-			catch (IOException e)
+			if(parEvent.getSource().equals(chPanelFormulaire.lePanel.chValidation))
 				{
-				e.printStackTrace();
+				Evenement leEvent;
+				Integer key = chTimeline.getKey(chPanelFormulaire.getEvenement());
+				leEvent = chPanelFormulaire.getEvenement();
+				leEvent.setChRow(leEvent.getChPoids());
+				leEvent.setChCol(chPanelFormulaire.getCol());
+				chTimeline.ajout(key, leEvent);
+				try
+					{
+					LectureEcriture.copierFichier(new File(leEvent.getChImageURL()), new File("images/"+leEvent.getChNom()+".png"));
+					leEvent.setImageURL("images/"+leEvent.getChNom()+".png");
+					}
+				catch (IOException e)
+					{
+					e.printStackTrace();
+					}
+				CellRenderer.setEvenement(leEvent);
+				chPanelTimeline.timeLine.setValueAt(new ImageIcon(leEvent.getChImageURL()), chPanelFormulaire.getImportance()-1, chPanelFormulaire.getCol());
+				chPanelFormulaire.execute_order_66();
+				LectureEcriture.ecriture(new File("save/saveload0.ser"), chTimeline);
 				}
-			CellRenderer.setEvenement(leEvent);
-			chPanelTimeline.timeLine.setValueAt(new ImageIcon(leEvent.getChImageURL()), chPanelFormulaire.getImportance()-1, chPanelFormulaire.getCol());
-			chPanelFormulaire.execute_order_66();
-			LectureEcriture.ecriture(new File("save/saveload0.ser"), chTimeline);
+			}
+		catch (NullPointerException e)
+			{
+			if(parEvent.getSource().equals(chFenetreMere.addEvent) || parEvent.getSource().equals(chFenetreMere.addTimeline))
+				{
+				}
 			}
 		
 		
-		
-		/**
-		 * 
-		 */
-		if(laSource.equals(chFenetreMere.addEvent) || laSource.equals(chFenetreMere.addTimeline))
+		if(parEvent.getSource().equals(chFenetreMere.timelineTest1) || parEvent.getSource().equals(chFenetreMere.timelineTest2))
 			{
-			
-			}
-		
-		if(laSource.equals(chFenetreMere.timelineTest1) || laSource.equals(chFenetreMere.timelineTest2))
-			{
-			
+			System.out.println("oui");
+			chTimeline = Timeline.generateTimeline(1);
+			chPanelTimeline.timeLine.setModel(new ModeleTable(chTimeline, true));
+			for(int i=0; i<3; i++)
+				{
+				chPanelTimeline.timeLine.getColumnModel().getColumn(i).setCellRenderer(new CellRenderer());			
+				}
+			for(Integer i: chTimeline.getMap().keySet())
+				{
+				Evenement leEvent = chTimeline.getEvenement(i);
+				CellRenderer.setEvenement(leEvent);
+				chPanelTimeline.timeLine.setValueAt(new ImageIcon(leEvent.getChImageURL()), leEvent.getChPoids()-1, leEvent.getChCol());
+				System.out.println(chTimeline.getEvenement(i).toString());
+				}
+//			this.remplirFrise();
 			}
 		}
+	
+//	public void remplirFrise()
+//		{
+//		for(Integer i : chTimeline.getMap().keySet())
+//			{
+//			Evenement leEvent = chTimeline.getEvenement(i);
+//			chPanelTimeline.timeLine.setValueAt(new ImageIcon(leEvent.getChImageURL()), leEvent.getChPoids()-1, leEvent.getChCol());
+//			System.out.println(chTimeline.getEvenement(i).toString());
+//			}
+//		}
 	
 	
 	/**
