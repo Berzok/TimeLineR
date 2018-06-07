@@ -19,6 +19,12 @@ public class ModeleTable extends DefaultTableModel
 	static String[] defautColonnes;
 	
 	
+	/**
+	 * Instantiates a new modele table.
+	 *
+	 * @param parTimeline the par timeline
+	 * @param beTrueOrNotToBeTrue the be true or not to be true
+	 */
 	public ModeleTable(Timeline parTimeline, Boolean beTrueOrNotToBeTrue)
 		{
 		this.finaliserTable(parTimeline);

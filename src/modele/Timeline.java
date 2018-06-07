@@ -197,6 +197,12 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		return leString;
 		}
 	
+	/**
+	 * Generate timeline.
+	 *
+	 * @param n the n
+	 * @return the timeline
+	 */
 	public static Timeline generateTimeline(Integer n)
 		{
 		Timeline nouvelleTimeline = new Timeline();

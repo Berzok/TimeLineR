@@ -88,6 +88,7 @@ public class Controleur implements ActionListener
 				chPanelTimeline.timeLine.setValueAt(new ImageIcon(leEvent.getChImageURL()), chPanelFormulaire.getImportance()-1, chPanelFormulaire.getCol());
 				chPanelFormulaire.execute_order_66();
 				LectureEcriture.ecriture(new File("save/saveload0.ser"), chTimeline);
+				this.chPanelDetailsEvenement.actualiser(leEvent);
 				}
 			}
 		catch (NullPointerException e)
@@ -114,19 +115,8 @@ public class Controleur implements ActionListener
 				chPanelTimeline.timeLine.setValueAt(new ImageIcon(leEvent.getChImageURL()), leEvent.getChPoids()-1, leEvent.getChCol());
 				System.out.println(chTimeline.getEvenement(i).toString());
 				}
-//			this.remplirFrise();
 			}
 		}
-	
-//	public void remplirFrise()
-//		{
-//		for(Integer i : chTimeline.getMap().keySet())
-//			{
-//			Evenement leEvent = chTimeline.getEvenement(i);
-//			chPanelTimeline.timeLine.setValueAt(new ImageIcon(leEvent.getChImageURL()), leEvent.getChPoids()-1, leEvent.getChCol());
-//			System.out.println(chTimeline.getEvenement(i).toString());
-//			}
-//		}
 	
 	
 	/**

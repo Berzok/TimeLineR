@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import modele.CellRenderer;
 import modele.Evenement;
 
 
@@ -59,4 +60,16 @@ public class PanelDetailsEvenement extends JPanel
 		this.add(lePanel);
 		
 		}
+	
+	/**
+	 * Actualiser.
+	 *
+	 * @param parEvent the par event
+	 */
+	public void actualiser(Evenement parEvent){
+		leTitre.setText(parEvent.getChNom());
+		leTexte.setText(parEvent.getChDesc());
+		laImage.setIcon(new ImageIcon(parEvent.getChImageURL()));
+	}
+	
 	}
