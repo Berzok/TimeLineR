@@ -156,9 +156,9 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 	
 	// Question 3
 //	public int nbExpose() {
-//		int iter = 0 ;// le nombre de fois où il y a "exposé" dans le titre
+//		int iter = 0 ;// le nombre de fois oÃ¹ il y a "exposÃ©" dans le titre
 //		for(int index = 0 ; index < this.listEvts.size() ; index++) {
-//			if(this.listEvts.get(index).getChNom().contains("exposé"))
+//			if(this.listEvts.get(index).getChNom().contains("exposÃ©"))
 //				iter++ ;
 //		}
 //		return iter;
@@ -193,7 +193,7 @@ public class Timeline implements Serializable, Comparable<Evenement> {
  */
 	public String toString(int parIndice)
 		{
-		String leString =  "Le "+ this.mapTimeline.get(parIndice).getChDate() + ", " + this.mapTimeline.get(parIndice).getChNom() + " à " + this.mapTimeline.get(parIndice).getChPoids();
+		String leString =  "Le "+ this.mapTimeline.get(parIndice).getChDate() + ", " + this.mapTimeline.get(parIndice).getChNom() + " Ã  " + this.mapTimeline.get(parIndice).getChPoids();
 		return leString;
 		}
 	
@@ -210,17 +210,17 @@ public class Timeline implements Serializable, Comparable<Evenement> {
 		eventUn.setImageURL("images/Naissance.png");
 		eventUn.setChCol(0);
 		
-		Evenement eventDeux = new Evenement("Fashion", new Date(7, 1, 1964), "Nicolas Cage se lance à l'attaque du monde de la mode !", 2);
+		Evenement eventDeux = new Evenement("Fashion", new Date(21, 6, 1983), "Nicolas Cage se lance Ã  l'attaque du monde de la mode !", 2);
 		eventDeux.setImageURL("images/Fashion.jpg");
 		eventDeux.setChCol(1);
 		
 		
-		Evenement eventTrois = new Evenement("Capillarité", new Date(7, 1, 1964), "Nicolas Cage devient à moitié aigle et se prépare à prendre son envol !", 1);
+		Evenement eventTrois = new Evenement("CapillaritÃ©", new Date(12, 10, 1999), "Nicolas Cage devient Ã  moitiÃ© aigle et se prÃ©pare Ã  prendre son envol !", 1);
 		eventTrois.setImageURL("images/cheveux.jpg");
 		eventTrois.setChCol(2);
 		
 		
-		Evenement eventQuatre = new Evenement("Jedi", new Date(7, 1, 1964), "Après avoir enfin maîtrisé la Force, Nicolas Cage devint le plus grand des chevaliers Jedi", 2);
+		Evenement eventQuatre = new Evenement("Jedi", new Date(13, 4, 2012), "AprÃ¨s avoir enfin maÃ®trisÃ© la Force, Nicolas Cage devint le plus grand des chevaliers Jedi", 2);
 		eventQuatre.setImageURL("images/jedi.png");
 		eventQuatre.setChCol(3);
 		
