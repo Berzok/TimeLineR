@@ -56,6 +56,10 @@ public class Evenement implements Serializable
 		return this.chCol;
 	}
 	
+	public String getChImageURL(){
+		return this.chImageURL;
+	}
+	
 	public void setChDate(Date parDate){
 		this.chDate = parDate;
 	}
