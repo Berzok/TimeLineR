@@ -5,9 +5,13 @@ import java.awt.Color;
 import java.text.ParseException;
 import modele.Date;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.Font;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
@@ -15,6 +19,7 @@ import javax.swing.Box;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JButton;
 
 
@@ -29,10 +34,11 @@ public class PanelFormulaire extends JDialog implements ActionListener
 	private Integer chCol;
 	private Integer chRow;
 	
-	class PanelFils extends JPanel
+	class PanelFils extends JPanel implements ActionListener
 		{
 		private JTextArea chTitreEvent;
-//		private JTextArea chDateEvent;
+		private JButton chImageBouton;
+		private String chEventImage;
 		private JComboBox<String> chImportance;
 		private JTextArea chDescEvent;
 		public JButton chValidation = new JButton("Valider");
@@ -59,6 +65,12 @@ public class PanelFormulaire extends JDialog implements ActionListener
 //			chDateEvent = new JTextArea();
 //			chDateEvent.setColumns(70);
 //			add(chDateEvent);
+			
+			
+			chImageBouton = new JButton("Ajouter une image");
+			chImageBouton.addActionListener(this);
+			add(chImageBouton);
+			
 			
 			
 			JLabel labelImportance = new JLabel("Importance: ");
@@ -90,9 +102,26 @@ public class PanelFormulaire extends JDialog implements ActionListener
 			}
 		
 		
-		public void actionPerformed(ActionEvent arg0)
+		public void actionPerformed(ActionEvent parEvent)
 			{
-			
+			if(parEvent.getSource().equals(chImageBouton))
+				{
+				JFileChooser fileSelect = new JFileChooser();
+				fileSelect.setCurrentDirectory(new File(System.getProperty("user.home")));
+				int leResultat = fileSelect.showOpenDialog(this);
+				if (leResultat == JFileChooser.APPROVE_OPTION)
+					{
+				    File laImage = fileSelect.getSelectedFile();
+				    try
+				    	{
+						chEventImage = laImage.getCanonicalPath();
+				    	}
+				    catch (IOException e)
+				    	{
+						e.printStackTrace();
+				    	}
+					}
+				}
 			}
 		
 		}
@@ -135,6 +164,7 @@ public class PanelFormulaire extends JDialog implements ActionListener
 		String desc = getDesc();
 		Integer importance = getImportance();
 		chEvenement = new Evenement(titre, date, desc, importance);
+		chEvenement.setImageURL(this.lePanel.chEventImage);
 		return chEvenement;
 		}
 	
@@ -145,8 +175,6 @@ public class PanelFormulaire extends JDialog implements ActionListener
 	public Integer getCol(){
 		return chCol;
 	}
-	
-	
 	public String getTitre(){
 		return this.lePanel.chTitreEvent.getText();
 		}
@@ -160,7 +188,11 @@ public class PanelFormulaire extends JDialog implements ActionListener
 	public Integer getImportance(){
 		return this.lePanel.chImportance.getSelectedIndex()+1;
 		}
+	public String getImageURl(){
+		return this.lePanel.chEventImage;
+	}
 
+	
 	public void actionPerformed(ActionEvent parEvent){
 		}
 	public void execute_order_66(){

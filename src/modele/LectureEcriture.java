@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.channels.FileChannel;
 
 public class LectureEcriture
 	{
@@ -53,4 +54,17 @@ public class LectureEcriture
 				System.exit (1);
 				}
 			} //  ecriture ()
+		
+		public static void copierFichier(File source, File dest) throws IOException {
+		    FileChannel sourceChannel = null;
+		    FileChannel destChannel = null;
+		    try {
+		        sourceChannel = new FileInputStream(source).getChannel();
+		        destChannel = new FileOutputStream(dest).getChannel();
+		        destChannel.transferFrom(sourceChannel, 0, sourceChannel.size());
+		       }finally{
+		           sourceChannel.close();
+		           destChannel.close();
+		   }
+		}
 	}

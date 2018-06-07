@@ -40,9 +40,7 @@ public class ModeleTable extends DefaultTableModel
 			{
 			valeur.add(Integer.parseInt(defautColonnes[i]));
 			}
-		System.out.println(valeur);
 		Collections.sort(valeur);
-		System.out.println(valeur);
 		
 		for (Integer i: valeur)
 			{
@@ -52,9 +50,12 @@ public class ModeleTable extends DefaultTableModel
 		this.setColumnIdentifiers(defautColonnes);
 		this.setColumnCount(defautColonnes.length);
 		this.setRowCount(4);
-		System.out.println(defautColonnes.length);
 		}
 	
+	
+	public Class<?> getColumnClass (int parIndex){
+		return String.class;
+		}
 	
 	public static String[] getTableHeader(){
 		return defautColonnes;

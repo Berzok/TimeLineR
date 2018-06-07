@@ -3,6 +3,11 @@ package vue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import modele.*;
 
@@ -39,9 +44,18 @@ public class Controleur implements ActionListener
 			leEvent.setChRow(leEvent.getChPoids());
 			leEvent.setChCol(chPanelFormulaire.getCol());
 			chTimeline.ajout(key, leEvent);
-			System.out.println("Poids max: " + chTimeline.getMaxPoidsEvent());
-			System.out.println("Poids event: " + leEvent.getChPoids());
 			chPanelTimeline.timeLine.setValueAt(leEvent.getChNom(), chPanelFormulaire.getImportance()-1, chPanelFormulaire.getCol());
+			System.out.println("URL: " + leEvent.getChImageURL());
+			try {
+				LectureEcriture.copierFichier(new File(leEvent.getChImageURL()), new File("images/"+leEvent.getChNom()+".png"));
+				leEvent.setImageURL("images/"+leEvent.getChNom()+".png");
+				System.out.println("URL: " + leEvent.getChImageURL());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			chPanelTimeline.timeLine.setValueAt(new ImageIcon(leEvent.getChImageURL()), chPanelFormulaire.getImportance()-1, chPanelFormulaire.getCol());
 			chPanelFormulaire.execute_order_66();
 			LectureEcriture.ecriture(new File("save/saveload0.ser"), chTimeline);
 			}
