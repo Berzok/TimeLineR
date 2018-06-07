@@ -17,6 +17,7 @@ public class Evenement implements Serializable
 	private String chDesc;
 	private Integer chRow;
 	private Integer chCol;
+	private String chImageURL;
 	
 	public Evenement(String parNom, Date parDate, String parDesc, Integer parPoids)
 		{
@@ -73,6 +74,10 @@ public class Evenement implements Serializable
 	
 	public void setChCol(Integer parCol){
 		this.chCol = parCol;
+	}
+	
+	public void setImageURL(String parURL){
+		this.chImageURL = parURL;
 	}
 	
 //	public static Evenement lireEvenement() throws ExceptionDate{
